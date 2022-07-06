@@ -2,7 +2,7 @@ import { styled, SxProps } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
 import { Avatar, Typography } from '@mui/material';
-import faceImg from '../../img/img/IMG_20190906_155858.jpg'
+import faceImg from '../../img/img/face1.jpg'
 
 
 
@@ -27,7 +27,7 @@ const AboutMe = () => {
         About Me
       </Box>
       <Box sx={aboutImg}>
-      <Avatar alt="Hazem Kawas" src={faceImg} />
+      <Avatar alt="Hazem Kawas" src={faceImg} sx={{ width: 300, height: 300 }} />
       </Box>
       <Box sx={aboutInfo}>
         About Me

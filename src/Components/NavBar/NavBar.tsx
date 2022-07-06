@@ -65,22 +65,28 @@ const NavBar = () => {
     <Box sx={{ width: '100%', paddingTop: '15em', paddingLeft: '1em' }}>
     <Stack spacing={2}>
     <ThemeProvider theme={theme}>
-      <Box onClick={() => setActivePage('Home')}>
+      <Box onClick={() => setActivePage('About')}>
     <AvtarBox  >
       <Avatar sx={{ bgcolor: green[500] }}  ><HomeOutlinedIcon/></Avatar >
       {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Home</Typography> : null }
     </AvtarBox>
       </Box>
-      <Box onClick={() => setActivePage('About')}>
-      <AvtarBox   >
-        <Avatar sx={{ bgcolor: green[500] }} ><AccountBoxIcon/></Avatar  >
-        {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >AboutMe</Typography> : null }
-        </AvtarBox>
-      </Box>
       <Box onClick={() => setActivePage('Experiences')}>
         <AvtarBox  >
         <Avatar sx={{ bgcolor: green[500] }} ><ListAltIcon/></Avatar  >
         {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Experiences</Typography> : null }
+        </AvtarBox>
+      </Box>
+      <Box onClick={() => setActivePage('Skills')}>
+        <AvtarBox  >
+        <Avatar sx={{ bgcolor: green[500] }} ><ListAltIcon/></Avatar  >
+        {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Skills</Typography> : null }
+        </AvtarBox>
+      </Box>
+      <Box onClick={() => setActivePage('Portfolio')}>
+      <AvtarBox   >
+        <Avatar sx={{ bgcolor: green[500] }} ><AccountBoxIcon/></Avatar  >
+        {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Portfolio</Typography> : null }
         </AvtarBox>
       </Box>
       <Box onClick={() => setActivePage('Contact')}>
