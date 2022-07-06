@@ -27,7 +27,7 @@ const NavBar = () => {
     height: '100vh',
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer',
+    // cursor: 'pointer',
     '&:hover': {
       // backgroundColor: blueGrey[700],
     },

@@ -26,7 +26,7 @@ const AboutMe = () => {
       <Box sx={aboutText}>
         About Me
       </Box>
-      <Box sx={aboutImg}>
+      <Box >
       <Avatar alt="Hazem Kawas" src={faceImg} sx={{ width: 300, height: 300 }} />
       </Box>
       <Box sx={aboutInfo}>
@@ -52,16 +52,7 @@ const aboutDiv: SxProps = {
   height: '90vh',
 
 }
-const aboutImg: SxProps = {
-  // width: { xs: '100px', md: '200px', lg: '300px' },
-  // position: { xs: 'absolute', md: 'absolute', lg: 'absolute'},
-  // left: { xs: '50%', md: '50%', lg: '50%' },
-  // right: { xs: '50%', md: '50%', lg: '50%' },
-  // display: 'flex',
-  // justifyContent: 'center',
-  // alignItems: 'center',
 
-}
 const aboutText: SxProps = {
   width: { xs: '50', md: '50%', lg: '100%' },
   display: 'flex',
