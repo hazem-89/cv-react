@@ -80,6 +80,9 @@ const Experiences = () => {
 
 
     </Box>
+      <Box className= {isWorkSecOpen ? 'workAnimation' : 'noAnimation' }>
+        <img  className='workImage' src="https://kinsta.com/wp-content/uploads/2020/04/code-review-tools.png" alt="" />
+      </Box>
      
     <Box sx={BoxStyle} className={isWorkSecOpen ? 'innerBox' : 'noBorderAnimation' } >
       {isWorkSecOpen ? 
@@ -117,9 +120,12 @@ const Experiences = () => {
      ))}
    </ImageList>
      </Box> : 
-        <Typography className="mainText" onClick={() => isEduSecOpen ? setIsEduSecOpen(false) : setIsEduSecOpen(true)}>
+     <Box >
+        <Typography sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '350px'}} className="mainText" onClick={() => isEduSecOpen ? setIsEduSecOpen(false) : setIsEduSecOpen(true)}>
         Education
         </Typography>
+     </Box>
+        
     }
     
     </Box>
@@ -159,9 +165,11 @@ const Experiences = () => {
       ))}
     </ImageList>
       </Box> : 
-        <Typography className="mainText" onClick={() => isWorkSecOpen ? setIsWorkSecOpen(false) : setIsWorkSecOpen(true)}>
-        Work
-     </Typography>
+       <Box >
+        <Typography sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '350px'}} className="mainText" onClick={() => isWorkSecOpen ? setIsWorkSecOpen(false) : setIsWorkSecOpen(true)}>
+          Work
+        </Typography>
+     </Box> 
     }
 
     </Box>
