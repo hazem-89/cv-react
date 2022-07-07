@@ -35,7 +35,7 @@ const NavBar = () => {
   const NavBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
     height: '100vh',
-    width: '5%',
+    width: '6%',
     borderRight: '1px solid #d1c4e9',
     transition: 'all 0.5s',
     '&:hover': {

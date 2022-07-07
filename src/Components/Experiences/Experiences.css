@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+
+
+.mainText {
+  cursor: pointer;
+  font-size: 5vw;
+  -webkit-text-stroke: 0.25vw #385251;
+  position: relative;
+  font-family: 'Hachi Maru Pop', cursive;
+}
+
+.noAnimation{
+  display: none;
+}
+
+.animation {
+  position: absolute;
+  display: flex;
+  justify-content: 'space-around';
+  top: 29%;
+  left: 30%;
+  transform: translate(-50%, 0%);
+  animation-name: example;
+  animation-duration: .5s;
+}
+
+@keyframes example {
+  0%   { position: absolute;
+    top: 0;
+    left: 30%;}
+  25%  { position: absolute;
+    top: 15%;
+    left: 30%;}
+  50%  { position: absolute;
+    top: 25%;
+    left: 30%;}
+  50%  { position: absolute;
+    top: 32%;
+    left: 30%;}
+  100% { position: absolute;
+    top: 25%;
+    left: 30%;;}
+}
