@@ -4,40 +4,94 @@
 .mainText {
   cursor: pointer;
   font-size: 5vw;
-  -webkit-text-stroke: 0.25vw #385251;
+  -webkit-text-stroke: 0.2vw #385251;
   position: relative;
   font-family: 'Hachi Maru Pop', cursive;
+  color: rgb(150, 224, 247);
+  z-index: 10;
+  
 }
 
 .noAnimation{
   display: none;
 }
+.border-animation {
+  height: calc(100% - 4px);
+  border: 2px solid #fff;
+  position: relative;
+}
+.noBorderAnimation{
+  position: relative;
+}
+.innerBox{
+  margin: 10px;
+  position: relative;
+  height: calc(100% - 20px);
+  display: flex;
+  align-items: 'center';
+  justify-content: "center";
+  overflow: hidden;
+  border-radius: 1em;
+}
+.innerBox::before{
+  content: "";
+  background: linear-gradient(#f9c9ff73, #e998e965);
+  width: 400px;
+  height: 140%;
+  position: absolute;
+  color: rgb(136, 41, 41);
+  animation: borderAnimayin 2s linear; 
+  transform: rotate(45deg);
 
+}
+.innerBox::after{
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background-color:#011114;
+  border-radius: 1em;
+  z-index: 0 ;
+}
+@keyframes borderAnimayin {
+  0%{
+    transform: rotate(45deg)
+  }
+  50%{
+    transform: rotate(180deg)
+  }
+  100%{
+    transform: rotate(45deg)
+  }
+}
 .animation {
   position: absolute;
   display: flex;
   justify-content: 'space-around';
-  top: 29%;
-  left: 30%;
+  top: 45%;
+  left: 47%;
   transform: translate(-50%, 0%);
   animation-name: example;
-  animation-duration: .5s;
+  animation-duration: 2s;
 }
-
+.edu-image {
+  max-width: 400px;
+}
 @keyframes example {
   0%   { position: absolute;
     top: 0;
-    left: 30%;}
-  25%  { position: absolute;
-    top: 15%;
-    left: 30%;}
-  50%  { position: absolute;
-    top: 25%;
-    left: 30%;}
-  50%  { position: absolute;
-    top: 32%;
-    left: 30%;}
+    left: 47%;}
+  /* 50%  { position: absolute;
+    top: 30%;
+    left: 47%;} */
+  75%  { position: absolute;
+    top: 46%;
+    left: 47%;}
   100% { position: absolute;
-    top: 25%;
-    left: 30%;;}
+    top: 42%;
+    left: 47%;;}
+}
+
+.education {
+  z-index: 9999;
+  
 }

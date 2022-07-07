@@ -23,7 +23,7 @@ const NavBar = () => {
 
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
-    backgroundColor: blueGrey[900],
+    backgroundColor: '#011114',
     height: '100vh',
     display: 'flex',
     alignItems: 'center',
