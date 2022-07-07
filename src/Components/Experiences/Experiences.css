@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&display=swap');
 
 .mainText {
   cursor: pointer;
   font-size: 5vw;
-  -webkit-text-stroke: 0.2vw #385251;
+  /* -webkit-text-stroke: 0.1vw #6fd3f1; */
   position: relative;
-  font-family: 'Hachi Maru Pop', cursive;
-  color: rgb(150, 224, 247);
+  font-family: 'Gentium Book Plus', serif;  
+  color: rgba(233, 238, 240, 0.795);
   z-index: 10;
   
 }
@@ -40,7 +39,7 @@
   height: 140%;
   position: absolute;
   color: rgb(136, 41, 41);
-  animation: borderAnimayin 2s linear; 
+  animation: borderAnimayin 1s linear; 
   transform: rotate(45deg);
 
 }
@@ -54,41 +53,49 @@
 }
 @keyframes borderAnimayin {
   0%{
-    transform: rotate(45deg)
+    transform: rotate(45deg);
+    background: linear-gradient(#f3827a73, #f061619d);
   }
-  50%{
-    transform: rotate(180deg)
-  }
+  /* 50%{
+    transform: rotate(360deg)
+  } */
   100%{
-    transform: rotate(45deg)
-  }
+    transform: rotate(220deg);
+    background: linear-gradient(#7af39473, #61f08c9d);
+    }
 }
 .animation {
   position: absolute;
   display: flex;
   justify-content: 'space-around';
-  top: 45%;
-  left: 47%;
+  top: 47%;
+  left: 43%;
   transform: translate(-50%, 0%);
   animation-name: example;
-  animation-duration: 2s;
+  animation-duration: .5s;
 }
 .edu-image {
   max-width: 400px;
+  max-height: 248px;
 }
 @keyframes example {
   0%   { position: absolute;
-    top: 0;
-    left: 47%;}
+    top: -100px;
+    left: 43%;}
   /* 50%  { position: absolute;
     top: 30%;
-    left: 47%;} */
-  75%  { position: absolute;
-    top: 46%;
-    left: 47%;}
+    left: 43%;} */
+  /* 60%  { position: absolute;
+    top: 45%;
+    left: 43%;
+  }
+  60%  { position: absolute;
+    top: 47%;
+    left: 43%;
+  } */
   100% { position: absolute;
-    top: 42%;
-    left: 47%;;}
+    top: 47%;
+    left: 43%;;}
 }
 
 .education {

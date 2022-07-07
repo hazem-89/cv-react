@@ -3,7 +3,7 @@ import { blueGrey } from '@mui/material/colors';
 import { useState } from 'react';
 import './Experiences.css'
 import InfoIcon from '@mui/icons-material/Info';
-import mediainstuPic from '../../img/Edu/download.png'
+import mediainstuPic from '../../img/work/download.jpg'
 
 
 const Experiences = () => {
@@ -83,11 +83,40 @@ const Experiences = () => {
      
     <Box sx={BoxStyle} className={isWorkSecOpen ? 'innerBox' : 'noBorderAnimation' } >
       {isWorkSecOpen ? 
-      <Box>
-        <Typography className="mainText">
-          Work experiences
-        </Typography>
-      </Box> : 
+       <Box className="education">
+       {/* <Typography className="mainText sec-texet">
+         Education
+       </Typography> */}
+       <ImageList sx={{ width: 500, height: 500, borderRadius: '1em', }}>
+     {/* <ImageListItem key="Subheader" cols={2}>
+       <ListSubheader component="div">December</ListSubheader>
+     </ImageListItem> */}
+     {workData.map((item) => (
+       <ImageListItem key={item.img}>
+         <img
+           src={`${item.img}?w=248&fit=crop&auto=format`}
+           srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+           alt={item.title}
+           loading="lazy"
+           className="edu-image"
+         />
+         <ImageListItemBar
+           title={item.title}
+           subtitle={item.field}
+           actionIcon={
+             <IconButton
+               sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+               aria-label={`info about ${item.title}`}
+             >
+               <InfoIcon />
+               
+             </IconButton>
+           }
+         />
+       </ImageListItem>
+     ))}
+   </ImageList>
+     </Box> : 
         <Typography className="mainText" onClick={() => isEduSecOpen ? setIsEduSecOpen(false) : setIsEduSecOpen(true)}>
         Education
         </Typography>
@@ -104,7 +133,7 @@ const Experiences = () => {
       {/* <ImageListItem key="Subheader" cols={2}>
         <ListSubheader component="div">December</ListSubheader>
       </ImageListItem> */}
-      {itemData.map((item) => (
+      {educationData.map((item) => (
         <ImageListItem key={item.img}>
           <img
             src={`${item.img}?w=248&fit=crop&auto=format`}
@@ -146,7 +175,7 @@ const BoxStyle: SxProps = {
   alignItems: 'center',
   justifyContent: "center",
 }
-const itemData = [
+const educationData = [
   {
     img: 'https://storage.googleapis.com/ares-profile-pictures/hd/medieinstitutet-7f3bdbdf1dd4d7fd4246ab8b72ff30b5_hd.jpg',
     title: 'Medieinstitutet',
@@ -157,11 +186,9 @@ const itemData = [
     featured: true,
   },
   {
-    img: 'https://storage.googleapis.com/ares-profile-pictures/hd/medieinstitutet-7f3bdbdf1dd4d7fd4246ab8b72ff30b5_hd.jpg',
-    title: 'Medieinstitutet',
-    field: 'Webbutvecklare inom e-handel',
-    date: "September 2020 – january 2021",
-    cols: 2,
+    img: 'https://yellow.place/file/image/thumb/0/0/1304/djmrjyskgpdsmlya.jpg',
+    title: 'goteborg tekniska college',
+    field: 'Elinstallation',
   },
   {
     img: 'https://bloggcampusmolndal.files.wordpress.com/2017/12/campusmolndal_logo.jpg',
@@ -170,11 +197,43 @@ const itemData = [
     date: "August 2019 – may 2019",
   },
   {
-    img: 'https://yellow.place/file/image/thumb/0/0/1304/djmrjyskgpdsmlya.jpg',
-    title: 'goteborg tekniska college',
-    field: 'Elinstallation',
+    img: 'https://storage.googleapis.com/ares-profile-pictures/hd/medieinstitutet-7f3bdbdf1dd4d7fd4246ab8b72ff30b5_hd.jpg',
+    title: 'Medieinstitutet',
+    field: 'Webbutvecklare inom e-handel',
+    date: "September 2020 – january 2021",
+    cols: 2,
   },
   
- 
+];
+const workData = [
+  {
+    img: 'https://yt3.ggpht.com/ZNCwA8zByeJJAw7gzknCTGjbNIHokCksg275U8vsv4QB17LizNtnlhb2itZXivhQbPTGpH1J3aI=s900-c-k-c0x00ffffff-no-rj',
+    title: 'VEOLIA',
+    field: 'INTERNSHIP-Electrical installation',
+    date: "Mars-2019",
+    rows: 2,
+    cols: 2,
+    featured: true,
+  },
+  {
+    img: 'https://teflsearch.com/sites/default/files/im%20academy.jpg',
+    title: 'IM Academy',
+    field: 'Activity supervisor',
+    date: 'May 2015 – August 2015'
+  },
+  {
+    img: 'https://yellow.place/file/image/cover/0/0/2671/lpdqfrhaagwnsolp.jpg',
+    title: 'HANIN CAFÉ',
+    field: 'Owner',
+    date: "January 2011 – October 2011",
+  },
+  {
+    img: 'http://pharaon-group.com/data/uploads/sawa-logo.png',
+    title: 'SAWA',
+    field: 'Customer support',
+    date: "January 2011 – October 2011",
+    cols: 2,
+  },
+  
 ];
 export default Experiences
