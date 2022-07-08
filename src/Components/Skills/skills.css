@@ -1,0 +1,9 @@
+.mainBox {
+  width: 100%;
+  height: 100%;
+  display: 'flex';
+  align-self: center;
+  justify-content: center;
+  background-size: cover;
+  color: #022c33;
+}

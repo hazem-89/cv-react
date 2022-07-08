@@ -9,12 +9,14 @@ import mediainstuPic from '../../img/work/download.jpg'
 const Experiences = () => {
  const [isWorkSecOpen, setIsWorkSecOpen] = useState(false)
  const [isEduSecOpen, setIsEduSecOpen] = useState(false)
+ const [activeSec, setActiveSec] = useState(false)
 
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
     backgroundColor: '#011114',
     height: '100vh',
     display: 'flex',
+    marginLeft: '10%',
     justifyContent: 'space-between',
     textColor: blueGrey[900],
     '&:hover': {
@@ -121,7 +123,13 @@ const Experiences = () => {
    </ImageList>
      </Box> : 
      <Box >
-        <Typography sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '350px'}} className="mainText" onClick={() => isEduSecOpen ? setIsEduSecOpen(false) : setIsEduSecOpen(true)}>
+        <Typography 
+        // sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '350px'}} 
+        className= {activeSec ? 'mainText-activ' : 'mainText'}
+        onClick={() => {
+          isEduSecOpen ? setIsEduSecOpen(false) : setIsEduSecOpen(true);
+          activeSec ? setActiveSec(false) : setActiveSec(true);
+        }}>
         Education
         </Typography>
      </Box>
@@ -166,7 +174,12 @@ const Experiences = () => {
     </ImageList>
       </Box> : 
        <Box >
-        <Typography sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '350px'}} className="mainText" onClick={() => isWorkSecOpen ? setIsWorkSecOpen(false) : setIsWorkSecOpen(true)}>
+        <Typography 
+        className= {activeSec ? 'mainText-activ' : 'mainText'} 
+        onClick={() => {
+          isWorkSecOpen ? setIsWorkSecOpen(false) : setIsWorkSecOpen(true)
+          activeSec ? setActiveSec(false) : setActiveSec(true);
+          }}>
           Work
         </Typography>
      </Box> 

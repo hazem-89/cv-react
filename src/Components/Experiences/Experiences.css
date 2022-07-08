@@ -2,21 +2,36 @@
 
 .mainText {
   cursor: pointer;
-  font-size: 5vw;
-  /* -webkit-text-stroke: 0.2vw #14181a; */
+  font-size: 5em;
+  -webkit-text-stroke: 0.2px #eceff0;
   position: relative;
   font-family: 'Gentium Book Plus', serif;  
-  color: rgba(233, 238, 240, 0.795);
+  color: rgba(10, 181, 248, 0.342);
   z-index: 10;
   padding: 1em;
   border-radius: .4em;
   /* min-width: 350px; */
-  box-shadow:  1px 1px 10px 10px  rgba(240, 147, 147, 0.253);
+  box-shadow:  1px 1px 10px 10px  rgba(253, 95, 33, 0.39);
   background-color: #01111400;
 }
 .mainText:hover {
-  text-decoration: underline;
-  box-shadow:  2px 2px 15px 15px  rgba(240, 147, 147, 0.253);
+  /* text-decoration: underline; */
+  box-shadow:  2px 2px 15px 15px  rgba(33, 253, 253, 0.144);
+}
+.mainText-activ {
+  cursor: pointer;
+  font-size: 4em;
+  -webkit-text-stroke: 0.2px #eceff0;
+  position: relative;
+  font-family: 'Gentium Book Plus', serif;  
+  color: rgba(10, 181, 248, 0.342);
+  z-index: 10;
+  padding: 1em;
+  border-radius: .4em;
+  /* min-width: 350px; */
+  box-shadow:  2px 2px 150px 150px  rgba(33, 253, 253, 0.068);
+  background-color: #02423d42;
+  min-width: 350px;
 }
 .noAnimation{
   display: none;
@@ -75,8 +90,8 @@
   position: absolute;
   display: flex;
   justify-content: 'space-around';
-  top: 47%;
-  left: 43%;
+  top: 46%;
+  left: 44%;
   transform: translate(-50%, 0%);
   animation-name: eduAnimation;
   animation-duration: .5s;
@@ -84,10 +99,10 @@
 @keyframes eduAnimation {
   0%   { position: absolute;
     top: -100px;
-    left: 43%;}
+    left: 44%;}
   100% { position: absolute;
-    top: 47%;
-    left: 43%;;}
+    top:46%;
+    left: 44%;;}
 }
 .edu-image {
   max-width: 400px;
@@ -99,7 +114,7 @@
   display: flex;
   justify-content: 'space-around';
   top: 43%;
-  left: 87%;
+  left: 80%;
   transform: translate(-50%, 0%);
   animation-name: WorkAnimation;
   animation-duration: .5s;
@@ -112,10 +127,10 @@
 @keyframes WorkAnimation {
   0%   { position: absolute;
     top: -100px;
-    left: 87%;}
+    left: 80%;}
   100% { position: absolute;
     top: 43%;
-    left: 87%;;}
+    left: 80%;;}
 }
 
 .education {

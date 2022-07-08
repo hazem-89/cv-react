@@ -14,12 +14,14 @@ import { green } from '@mui/material/colors';
 import { useState } from 'react';
 import AboutMe from '../AboutMe/AboutMe';
 import Experiences from '../Experiences/Experiences';
-
+import Skills from '../Skills/Skills';
+// img
+import faceImg from '../../img/img/face3.jpg'
 
 
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
-  const [activePage, setActivePage] = useState('Home');
+  const [activePage, setActivePage] = useState('About');
 
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
@@ -37,10 +39,12 @@ const NavBar = () => {
     height: '100vh',
     width: '6%',
     borderRight: '1px solid #d1c4e9',
-    transition: 'all 0.5s',
+    transition: 'all .6s',
+    position: 'absolute',
     '&:hover': {
-      // backgroundColor: blueGrey[700],
+      backgroundColor: '#022c33',
       width: '12%',
+      borderRight: 'none',
     },
   }));
   const AvtarBox = styled(Box)<BoxProps>(({ theme }) => ({
@@ -61,37 +65,41 @@ const NavBar = () => {
   });
   return (
     <LayoutBox>
-    <NavBox onMouseEnter={() => setTimeout(() => setNavOpen(true), 200)}  onMouseLeave={() => setNavOpen(false)} >
+    <NavBox onMouseEnter={() => setNavOpen(true)} onMouseLeave={() => setNavOpen(false)} >
     <Box sx={{ width: '100%', paddingTop: '15em', paddingLeft: '1em' }}>
     <Stack spacing={2}>
     <ThemeProvider theme={theme}>
+      {activePage !== 'About' ?
+      <Box sx={navImg}>
+        <Avatar alt="Hazem Kawas" src={faceImg} sx={{ width: 50, height: 50 }} />
+      </Box> : null }
       <Box onClick={() => setActivePage('About')}>
     <AvtarBox  >
-      <Avatar sx={{ bgcolor: green[500] }}  ><HomeOutlinedIcon/></Avatar >
+      <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }}  ><HomeOutlinedIcon/></Avatar >
       {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Home</Typography> : null }
     </AvtarBox>
       </Box>
       <Box onClick={() => setActivePage('Experiences')}>
         <AvtarBox  >
-        <Avatar sx={{ bgcolor: green[500] }} ><ListAltIcon/></Avatar  >
+        <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><ListAltIcon/></Avatar  >
         {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Experiences</Typography> : null }
         </AvtarBox>
       </Box>
-      <Box onClick={() => setActivePage('Skills')}>
+      <Box onClick={() => setActivePage('skills')}>
         <AvtarBox  >
-        <Avatar sx={{ bgcolor: green[500] }} ><ListAltIcon/></Avatar  >
+        <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><ListAltIcon/></Avatar  >
         {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Skills</Typography> : null }
         </AvtarBox>
       </Box>
       <Box onClick={() => setActivePage('Portfolio')}>
       <AvtarBox   >
-        <Avatar sx={{ bgcolor: green[500] }} ><AccountBoxIcon/></Avatar  >
+        <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><AccountBoxIcon/></Avatar  >
         {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Portfolio</Typography> : null }
         </AvtarBox>
       </Box>
       <Box onClick={() => setActivePage('Contact')}>
       <AvtarBox  >
-        <Avatar sx={{ bgcolor: green[500] }} ><ContactMailIcon/></Avatar >
+        <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><ContactMailIcon/></Avatar >
         {navOpen ? <Typography sx= {{paddingLeft: '.3em'}} >Contact</Typography> : null }
         </AvtarBox>
       </Box>
@@ -103,6 +111,7 @@ const NavBar = () => {
         {/* {activePage === 'Home' && <Home />} */}
         {activePage === 'About' && <AboutMe />}
         {activePage === 'Experiences' && <Experiences />}
+        {activePage === 'skills' && <Skills />}
       </Box>
     </LayoutBox>
 
@@ -113,7 +122,10 @@ const bodyBoxStyle: SxProps = {
   width: { xs: '100%', md: '80%',lg: '100%' },
   display: 'flex',
   flexDirection: "column"
-  // justifyContent: "space-between"
+}
+const navImg: SxProps = {
+  position: "absolute",
+  top: "30%",
 
 }
 export default NavBar
