@@ -8,8 +8,9 @@ import './AboutMe.css'
 // icons
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { useState } from 'react';
-import { setTimeout } from 'timers/promises';
+import { useEffect, useState } from 'react';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import TypewriterEffec from '../TypeWriterEffec';
 
 const AboutBox = styled(Box)<BoxProps>(({ theme }) => ({
   color: theme.palette.getContrastText(blueGrey[900]),
@@ -22,9 +23,19 @@ const AboutBox = styled(Box)<BoxProps>(({ theme }) => ({
 }));
 const AboutMe = () => {
   const [gitOpen, setGitOpen] = useState(false)
-
   
-    
+  // useEffect(() => {
+  //   const timer = window.setTimeout(() => {
+  //     setGitOpen(true);
+  //   }, 1000);
+  //   // return () =>  clearTimeout(timer);
+  // }, []);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      gitOpen ? setGitOpen(false) : setGitOpen(true)
+    }, 5000);
+    return () =>  clearTimeout(timer);
+  }, [gitOpen]);
   return (
     <AboutBox>
       {/* <Box sx={titleStyle}>
@@ -33,8 +44,7 @@ const AboutMe = () => {
       <Box sx={aboutDiv}>
       <Box sx={aboutText}>
         <Typography className='about-mainText'>
-          <span>Hello</span> <br />
-          I am a web developer based in Gothenburg-Sweden, 
+          <TypewriterEffec />
         </Typography>
       </Box>
       <Box >
@@ -47,10 +57,16 @@ const AboutMe = () => {
       <Box className='about-icons'>
         <GitHubIcon className='icons' />
         <LinkedInIcon  className='icons'/>
+        <ContactMailIcon  className='icons'/>
         </Box>
-        <Box className='git'>
-
+        {gitOpen ? <>
+          <Box className= 'git'>
+          <Typography className='git-text'>
+            Hello..!
+            Lets get in touch
+          </Typography>
         </Box>
+        </> : null}
       </AboutBox>
   )
 }
