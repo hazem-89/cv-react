@@ -3,7 +3,6 @@ import Box, { BoxProps } from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
 import { Avatar, Typography } from '@mui/material';
 import faceImg from '../../img/img/face1.jpg'
-import './AboutMe.css'
 
 // icons
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -12,24 +11,9 @@ import { useEffect, useState } from 'react';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import TypewriterEffec from '../TypeWriterEffec';
 
-const AboutBox = styled(Box)<BoxProps>(({ theme }) => ({
-  color: theme.palette.getContrastText(blueGrey[900]),
-  width: '100%',
-  // height: '100vh',
-  // marginLeft: '8%',
-  '&:hover': {
-    // backgroundColor: blueGrey[700],
-  },
-}));
 const AboutMe = () => {
   const [gitOpen, setGitOpen] = useState(false)
   
-  // useEffect(() => {
-  //   const timer = window.setTimeout(() => {
-  //     setGitOpen(true);
-  //   }, 1000);
-  //   // return () =>  clearTimeout(timer);
-  // }, []);
   useEffect(() => {
     const timer = window.setTimeout(() => {
       gitOpen ? setGitOpen(false) : setGitOpen(true)
@@ -37,10 +21,7 @@ const AboutMe = () => {
     return () =>  clearTimeout(timer);
   }, [gitOpen]);
   return (
-    <AboutBox>
-      {/* <Box sx={titleStyle}>
-      <Typography >About Me</Typography >
-      </Box> */}
+    <Box sx={AboutBoxStyle}>
       <Box sx={aboutDiv}>
       <Box sx={aboutText}>
         <Typography className='about-mainText'>
@@ -54,29 +35,24 @@ const AboutMe = () => {
         About Me
       </Box>
       </Box>
-      <Box className='about-icons'>
+      <Box  sx={aboutIcons}>
         <GitHubIcon className='icons' />
         <LinkedInIcon  className='icons'/>
         <ContactMailIcon  className='icons'/>
         </Box>
         {gitOpen ? <>
-          <Box className= 'git'>
-          <Typography className='git-text'>
+          <Box sx={popUp}>
+          <Typography  sx={popUpText}>
             Hello..!
             Lets get in touch
           </Typography>
         </Box>
         </> : null}
-      </AboutBox>
+      </Box>
   )
 }
-const titleStyle: SxProps = {
-  width: { xs: '50', md: '50%', xl: '50%' },
-  display: 'flex',
-  alignItems: 'flex-start',
-  paddingLeft: { xs: '1em', md: '1em', lg: '2em' },
-  paddingTop: { xs: '1em', md: '1em', lg: '2em' },
-  height: '5vh',
+const AboutBoxStyle: SxProps = {
+  width: { xs: '50', md: '50%', lg: '98%' },
 }
 const aboutDiv: SxProps = {
   width: { xs: '50', md: '50%', lg: '100%', xl: '100%' },
@@ -84,7 +60,7 @@ const aboutDiv: SxProps = {
   justifyContent: 'center',
   alignItems: 'center',
   height: '90vh',
-
+  paddingLeft: {xs: '0', md: '0', lg: '1em'},
 }
 
 const aboutText: SxProps = {
@@ -92,7 +68,24 @@ const aboutText: SxProps = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-
+}
+const aboutIcons: SxProps = {
+  position: 'absolute',
+  left: '50%',
+  bottom:' 1em',
+  // transform: 'translate(-50%, -50%)',
+}
+const popUp: SxProps = {
+  width: '150px',
+  height: '50px',
+  backgroundColor: '#fff',
+  position: 'absolute',
+  left: '55%',
+  bottom: '3em',
+  transform: 'translate(+47%, -40%)',
+  borderRadius: '1em 1em  1em 0.1em',
+  display: 'flex',
+  alignItems: 'center',
 }
 const aboutInfo: SxProps = {
   width: { xs: '50', md: '50%', lg: '100%' },
@@ -101,4 +94,11 @@ const aboutInfo: SxProps = {
   alignItems: 'center',
 
 }
+
+const popUpText: SxProps = {
+  color: 'rgb(141, 15, 15)',
+  fontSize: '.9em',
+  padding: '1em',
+}
+
 export default AboutMe
