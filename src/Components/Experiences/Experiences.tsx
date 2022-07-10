@@ -199,7 +199,6 @@ const LayoutBox: SxProps = {
   height: '100vh',
   display: 'flex',
   flexDirection: {xs: 'column', md: 'column', lg: 'row'},
-  marginLeft: '10%',
   justifyContent: 'space-between',
   textColor: blueGrey[900],
 }

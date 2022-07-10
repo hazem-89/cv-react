@@ -7,7 +7,7 @@ const TypewriterEffec = () => {
   
   const [typeOn, setTypeOn] = useState(false)
 
-  setTimeout(() =>setTypeOn(false), 1000)
+  // setTimeout(() =>setTypeOn(false), 1000)
 
   return (
     <Box >
@@ -17,10 +17,9 @@ const TypewriterEffec = () => {
       .typeString(`Hello...`)
       .pauseFor(1000)
       .typeString("I am a web developer based in Sweden")
-      .deleteAll()
-      .callFunction(() => {
-        setTypeOn(true); 
-      })
+      // .callFunction(() => {
+      //   setTypeOn(true); 
+      // })
       .start();
   }}
   /> : null

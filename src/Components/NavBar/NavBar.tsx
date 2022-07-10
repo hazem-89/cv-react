@@ -126,6 +126,7 @@ const NavBox: SxProps = {
   position: {xs: 'absolute', md: 'relative', lg: 'relative'},
   top: 0,
   left: 0,
+ 
   '&:hover': {
     // backgroundColor: '#022c33',
     // width: '15%',
@@ -141,6 +142,7 @@ const NaveBoxInner: SxProps = {
   flexDirection: {xs: 'row', md: 'row', lg: 'column'},
   justifyContent: {xs: 'space-around', md: 'center', lg: 'space-between'},
   alignItems: {xs: 'center', md: 'center', lg: 'flex-start'},
+  
   // position: {xs: 'absolute', md: 'relative', lg: 'relative'},
   // top: 0,
   // left: 0,
@@ -160,7 +162,8 @@ const AvtarBox: SxProps = {
 const bodyBoxStyle: SxProps = {
   width: { xs: '100%', md: '80%',lg: '100%' },
   display: 'flex',
-  flexDirection: "column"
+  flexDirection: { xs: 'column', md: 'column', lg:'row' },
+  // marginLeft: '10%',
 }
 const navImg: SxProps = {
   position: "absolute",
