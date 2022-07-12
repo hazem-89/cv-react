@@ -121,7 +121,7 @@ const NavBar = () => {
 const NavBox: SxProps = {
   height: {xs: '12vh', md: '10vh', lg: '100vh'},
   width: {xs: '100%', md: '100%', lg: '10%'},
-  borderRight: {xs: 'none', md: 'none', lg: '1px solid #d1c4e9'},
+  // borderRight: {xs: 'none', md: 'none', lg: '1px solid #d1c4e9'},
   transition: 'all .6s',
   position: {xs: 'absolute', md: 'relative', lg: 'relative'},
   top: 0,

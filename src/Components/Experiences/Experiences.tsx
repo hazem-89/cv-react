@@ -87,65 +87,8 @@ const Experiences = () => {
     <Box sx={BoxStyle} className={isWorkSecOpen ? 'innerBox' : 'noBorderAnimation' } >
       {isWorkSecOpen ? 
        <Box className="education">
-       {/* <Typography className="mainText sec-texet">
-         Education
-       </Typography> */}
-       <ImageList sx={{ width: 500, height: 500, borderRadius: '1em', }}>
-     {/* <ImageListItem key="Subheader" cols={2}>
-       <ListSubheader component="div">December</ListSubheader>
-     </ImageListItem> */}
-     {workData.map((item) => (
-       <ImageListItem key={item.img}>
-         <img
-           src={`${item.img}?w=248&fit=crop&auto=format`}
-           srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-           alt={item.title}
-           loading="lazy"
-           className="edu-image"
-         />
-         <ImageListItemBar
-           title={item.title}
-           subtitle={item.field}
-           actionIcon={
-             <IconButton
-               sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-               aria-label={`info about ${item.title}`}
-             >
-               <InfoIcon />
-               
-             </IconButton>
-           }
-         />
-       </ImageListItem>
-     ))}
-   </ImageList>
-     </Box> : 
-     <Box >
-        <Typography 
-        // sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '350px'}} 
-        className= {activeSec ? 'mainText-activ' : 'mainText'}
-        onClick={() => {
-          isEduSecOpen ? setIsEduSecOpen(false) : setIsEduSecOpen(true);
-          activeSec ? setActiveSec(false) : setActiveSec(true);
-        }}>
-        Education
-        </Typography>
-     </Box>
-        
-    }
-    
-    </Box>
-    <Box sx={BoxStyle} className={isEduSecOpen ? 'innerBox' : 'noBorderAnimation' }>
-      {isEduSecOpen ? 
-      <Box className="education">
-        {/* <Typography className="mainText sec-texet">
-          Education
-        </Typography> */}
-        <ImageList sx={{ width: 500, height: 500, borderRadius: '1em', }}>
-      {/* <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">December</ListSubheader>
-      </ImageListItem> */}
-      {educationData.map((item) => (
+       <ImageList sx={imageListBox}>
+        {workData.map((item) => (
         <ImageListItem key={item.img}>
           <img
             src={`${item.img}?w=248&fit=crop&auto=format`}
@@ -168,19 +111,64 @@ const Experiences = () => {
             }
           />
         </ImageListItem>
-      ))}
-    </ImageList>
-      </Box> : 
-       <Box >
+     ))}
+   </ImageList>
+     </Box> : 
+     <Box >
         <Typography 
-        className= {activeSec ? 'mainText-activ' : 'mainText'} 
+        // sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '350px'}} 
+        sx={activeSec ? mainTextsActive : mainTexts}
         onClick={() => {
-          isWorkSecOpen ? setIsWorkSecOpen(false) : setIsWorkSecOpen(true)
+          isEduSecOpen ? setIsEduSecOpen(false) : setIsEduSecOpen(true);
           activeSec ? setActiveSec(false) : setActiveSec(true);
-          }}>
-          Work
+        }}>
+        Education
         </Typography>
-     </Box> 
+     </Box>
+        
+    }
+    
+    </Box>
+    <Box sx={BoxStyle} className={isEduSecOpen ? 'innerBox' : 'noBorderAnimation' }>
+      {isEduSecOpen ? 
+      <Box className="education" sx={imageListBox}>
+        <ImageList sx={imageListBox}>
+        {educationData.map((item) => (
+          <ImageListItem key={item.img}>
+            <img
+              src={`${item.img}?w=248&fit=crop&auto=format`}
+              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={item.title}
+              loading="lazy"
+              className="edu-image"
+            />
+            <ImageListItemBar
+              title={item.title}
+              subtitle={item.field}
+              actionIcon={
+                <IconButton
+                  sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                  aria-label={`info about ${item.title}`}
+                >
+                  <InfoIcon />
+                  
+                </IconButton>
+              }
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+        </Box> : 
+        <Box  >
+          <Typography 
+            sx= {activeSec ? mainTextsActive : mainTexts} 
+            onClick={() => {
+            isWorkSecOpen ? setIsWorkSecOpen(false) : setIsWorkSecOpen(true)
+            activeSec ? setActiveSec(false) : setActiveSec(true);
+            }}>
+            Work
+          </Typography>
+      </Box> 
     }
 
     </Box>
@@ -188,20 +176,69 @@ const Experiences = () => {
     </Box>
   )
 }
-const BoxStyle: SxProps = {
-  width: { xs: '30%', md: '80%',lg: '100%' },
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: "center",
-}
+
 const LayoutBox: SxProps = {
+  width: { xs: '100%', md: '100%',lg: '100%' },
+  paddingLeft: { xs: '0', md: '0',lg: '2em' },
+  paddingTop: { xs: '10em', md: '0',lg: '0' },
   backgroundColor: '#011114',
   height: '100vh',
   display: 'flex',
   flexDirection: {xs: 'column', md: 'column', lg: 'row'},
+  alignItems: 'center',
   justifyContent: 'space-between',
   textColor: blueGrey[900],
 }
+const BoxStyle: SxProps = {
+  width: { xs: '100%', md: '80%',lg: '100%' },
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: "center",
+  height: '90vh',
+}
+const mainTexts: SxProps = {
+  cursor: 'pointer',
+  fontSize: { xs: '3em', md: '3em',lg: '5em' },
+  webkitTextStroke: '0.2px #eceff0',
+  fontFamily: 'Gentium Book Plus, serif',  
+  color: 'rgba(10, 181, 248, 0.342)',
+  zIndex: '10',
+  p: '1em',
+  borderRadius:'.4em',
+  minWidth: { xs: '250px', md: '80%',lg: '350px' },
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: "center",
+  // backgroundColor: 'red',
+  '&:hover': {
+    boxShadow:  '2px 2px 15px 15px  rgba(33, 253, 253, 0.144)',
+  }
+}
+const mainTextsActive: SxProps = {
+  cursor: 'pointer',
+  fontSize: { xs: '3em', md: '3em',lg: '4em' },
+  display: 'flex',
+  alignItems: 'center',
+  position: 'relative',
+  fontFamily: 'Gentium Book Plus, serif',  
+  color: 'rgba(10, 181, 248, 0.342)',
+  zIndex: '10',
+  padding: '1em',
+  borderRadius:'.4em',
+  boxShadow:  '2px 2px 150px 150px  rgba(33, 253, 253, 0.068)',
+  backgroundColor: '#02423d42',
+  minWidth: { xs: '250px', md: '80%',lg: '350px' },
+}
+const imageListBox: SxProps = {
+  maxWidth: { xs: '350px', md: '80%',lg: '500px' },
+  maxHeight: { xs: '340px', md: '80%',lg: '500px' },
+  borderRadius: '2em'
+}
+
+
+
+
+
 const educationData = [
   {
     img: 'https://storage.googleapis.com/ares-profile-pictures/hd/medieinstitutet-7f3bdbdf1dd4d7fd4246ab8b72ff30b5_hd.jpg',
