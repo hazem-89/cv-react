@@ -48,20 +48,24 @@ const AboutMe = () => {
   useEffect(() => {
     const backGroundAnimationTimer = window.setTimeout(() => {
       backGroundAnimation ? setBackGroundAnimation(false) : setBackGroundAnimation(true)
-    }, 6000)
+    }, 8000)
     return () =>  clearTimeout(backGroundAnimationTimer);
   }, [backGroundAnimation]);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      popUpOn ? setPopUpOn(false) : setPopUpOn(true)
+    window.setTimeout(() => {
+      if( popUpOn) setPopUpOn(false)
     }, 5000);
-    return () =>  clearTimeout(timer);
+  }, [popUpOn]);
+  useEffect(() => {
+    window.setTimeout(() => {
+      if( !popUpOn) setPopUpOn(true)
+    }, 20000);
   }, [popUpOn]);
 
   return (
     <Box sx={AboutBoxStyle}>
-      {backGroundAnimation ?  <Box className={classes.root} sx={root}>
+      {/* {backGroundAnimation ?  <Box className={classes.root} sx={root}>
       <svg width="300px" height="300px"  viewBox="0 0 94 90" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d_1_3)">
         <path d="M10.0312 26.0615L31.1146 25.3816L46.2083 0.654995L49.4396 0.569244L37.9188 33.6402L18.8437 33.679L10.0312 26.0615ZM18.6875 72.4625L24.3521 52.546L4.8125 31.0207L5.69792 27.9725L34.4333 48.6648L28.7458 66.509L18.6875 72.4625ZM64.35 79.2388L46.4646 68.2709L19.8646 80.5332L17.1333 78.8386L45.525 57.6951L61.3771 68.0953L64.35 79.2388ZM84.0833 37.1396L68.1396 50.6799L72.3 79.202L69.8458 81.2641L57.5479 48.4606L72.3417 36.6598L84.0833 37.1396ZM51.8396 5.46312L59.3083 24.7997L88.0583 30.8084L89.1875 33.777H53.5292L47.3292 16.0982L51.8396 5.46312Z" fill="url(#paint0_linear_1_3)" fill-opacity="0.34" shape-rendering="crispEdges"/>
@@ -86,7 +90,7 @@ const AboutMe = () => {
       </svg>
 
 
-        </Box> : null}
+        </Box> : null} */}
      
       <Box sx={aboutDiv}>
       <Box sx={aboutText}>

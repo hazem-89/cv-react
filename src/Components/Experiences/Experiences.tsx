@@ -181,7 +181,6 @@ const LayoutBox: SxProps = {
   width: { xs: '100%', md: '100%',lg: '100%' },
   paddingLeft: { xs: '0', md: '0',lg: '2em' },
   paddingTop: { xs: '10em', md: '0',lg: '0' },
-  backgroundColor: '#011114',
   height: '100vh',
   display: 'flex',
   flexDirection: {xs: 'column', md: 'column', lg: 'row'},

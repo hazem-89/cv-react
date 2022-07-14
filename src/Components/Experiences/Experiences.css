@@ -64,12 +64,16 @@
   animation-duration: .5s;
 }
 @keyframes eduAnimation {
-  0%   { position: absolute;
+  0%   { 
+    position: absolute;
     top: -100px;
-    left: 41.5%;}
-  100% { position: absolute;
+    left: 41.5%;
+  }
+  100% { 
+    position: absolute;
     top:46%;
-    left: 41.5%;;}
+    left: 41.5%;
+  }
 }
 .edu-image {
   max-width: 400px;
