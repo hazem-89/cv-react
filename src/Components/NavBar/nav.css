@@ -1,0 +1,69 @@
+.clodBox img {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: cloudAnimation 100s linear infinite;
+  z-index: 0;
+}
+
+@keyframes cloudAnimation {
+  0%{
+    transform: translate(-100%);
+  }
+  100%{
+    transform: translate(100%);
+  }
+}
+.ballonBoxPort{
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+
+
+.ballonBoxPort img {
+  position: absolute;
+  bottom: 10em;
+  max-width: 100%;
+  animation: ballonBoxPort 1s linear;
+  right: 5em;
+}
+@keyframes ballonBoxPort {
+  0%{
+    right: -20em;
+  }
+  100%{
+    right: 5em;
+
+  }
+}
+
+.ballonBoxHom {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+}
+.ballonBoxHom img {
+  position: absolute;
+  bottom: 10em;
+  max-width: 100%;
+  animation: ballonBoxHome 15s linear;
+  right: 5em;
+}
+@keyframes ballonBoxHome {
+  0%{
+    top: -20em;
+    transform: scale(.5);
+
+  }
+  50%{
+    transform: scale(.8);
+  }
+  100%{
+    top: 10%;
+    transform: scale(1);
+  }
+}
+.none {
+  display: none;
+}

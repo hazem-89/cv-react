@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import * as React from 'react';
 import Box, { BoxProps } from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -5,6 +6,7 @@ import { styled, SxProps } from '@mui/material/styles';
 import { Avatar,Typography } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import './nav.css'
 //Icons
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
@@ -15,55 +17,77 @@ import { useState } from 'react';
 import AboutMe from '../AboutMe/AboutMe';
 import Experiences from '../Experiences/Experiences';
 import Skills from '../Skills/Skills';
+import { makeStyles } from '@mui/styles';
 // img
 import faceImg from '../../img/img/face3.jpg'
+import ballon from '../../img/img/Group 9.png'
+import cloud1 from '../../img/img/New folder/cloud1.png'
+import cloud2 from '../../img/img/New folder/cloud2.png'
+import cloud3 from '../../img/img/New folder/cloud3.png'
+import cloud4 from '../../img/img/New folder/cloud4.png'
+import cloud5 from '../../img/img/New folder/cloud5.png'
+import backgroundImage from '../../img/img/New folder/sky-background.jpg'
+import Portfolio from '../Portfolio/Portfolio';
+import { NONAME } from 'dns';
 
 
+const useStyles = makeStyles({
+  ballon: {
+    animation: "$indeterminate1 15s linear forwards",
+    translate: 'translate(-50%)',
+
+  },
+  bar2Indeterminate: {
+    display: "none"
+  },
+  "@keyframes indeterminate1": {
+    "0%": {
+      top: "0",
+      opacity: '0',
+      transform: "scale(.5)"
+    },
+    '50%':{
+      opacity: '.5',
+      transform: "scale(.8)"
+    },
+    "100%": {
+      top: "10%",
+      opacity: '1',
+      transform: "scale(1)",
+    }
+  },
+});
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [activePage, setActivePage] = useState('About');
-
+  
+  const classes = useStyles();
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
-    backgroundColor: '#011114',
     height: '100vh',
     display: 'flex',
     alignItems: 'center',
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
     // cursor: 'pointer',
     '&:hover': {
       // backgroundColor: blueGrey[700],
     },
   }));
-  // const NavBox = styled(Box)<BoxProps>(({ theme }) => ({
-  //   color: theme.palette.getContrastText(blueGrey[900]),
-  //   height: '100vh',
-  //   width: '6%',
-  //   borderRight: '1px solid #d1c4e9',
-  //   transition: 'all .6s',
-  //   position: 'absolute',
-  //   '&:hover': {
-  //     backgroundColor: '#022c33',
-  //     width: '12%',
-  //     borderRight: 'none',
-  //   },
-  // }));
-  // const AvtarBox = styled(Box)<BoxProps>(({ theme }) => ({
-  //   color: theme.palette.getContrastText(blueGrey[900]),
-  //     display: 'flex',
-  //     alignItems: 'center',
-  //     cursor: 'pointer',
-  //   '&:hover': {
-  //     // backgroundColor: blueGrey[700],
-  //     // width: '20vh',
-  //   },
-  // }));
-  // const theme = createTheme({
-  //   typography: {
-  //     htmlFontSize: 18,
-      
-  //   },
-  // });
+ 
   return (
+    <>
+    <Box sx={ballonBox} className={activePage === 'About' ? 'ballonBoxHom' : activePage === 'Portfoliio' ? 'ballonBoxPort' :activePage === 'skills' ? 'ballonBoxPort' : 'none'}>
+    <img style={{ width:'300px', height:'400px', zIndex: '999'}} src={ballon} alt="avtar" />
+    {/* <Box component="img" src={ballon} sx={cloudImg} style={{ width:'300px', height:'400px' }}  alt="" /> */}
+    </Box>
+    <Box  sx={cloudBox} className='clodBox'>
+      <img  src={cloud1}  alt="" />
+      <img  src={cloud2}  alt="" />
+      <img  src={cloud3}  alt="" />
+      <img  src={cloud4}  alt="" />
+      <img  src={cloud5}  alt="" />
+    </Box>
     <LayoutBox>
     <Box sx={NavBox} onMouseEnter={() => setNavOpen(true)} onMouseLeave={() => setNavOpen(false)} >
     <Box >
@@ -112,8 +136,10 @@ const NavBar = () => {
         {activePage === 'About' && <AboutMe />}
         {activePage === 'Experiences' && <Experiences />}
         {activePage === 'skills' && <Skills />}
+        {activePage === 'Portfolio' && <Portfolio />}
       </Box>
     </LayoutBox>
+    </>
 
     
   )
@@ -126,7 +152,7 @@ const NavBox: SxProps = {
   position: {xs: 'absolute', md: 'relative', lg: 'relative'},
   top: 0,
   left: 0,
- 
+  zIndex: '99',
   '&:hover': {
     // backgroundColor: '#022c33',
     // width: '15%',
@@ -173,7 +199,26 @@ const navImg: SxProps = {
   width: 50, 
   height: 50
 }
-// const box: SxProps = {
-//  width: '100%',
-// }
+const ballonBox: SxProps = {
+  zIndex: '1',
+  overflow: 'hidden',
+  width: { xs: '100%', md: '', lg: '100%'},
+  height: { xs: '100%', md: '', lg: '100%'},
+}
+const cloudBox: SxProps = {
+  position: 'absolute',
+  right: '0',
+  left: '0',
+  width: { xs: '100%', md: '', lg: '100%'},
+  height: { xs: '100%', md: '', lg: '100%'},
+  overflow: 'hidden',
+  zIndex: '0'
+}
+const cloudImg: SxProps = {
+  position: 'absolute',
+  bottom: '0',
+  maxWidth: '100%',
+  // width: { xs: '100%', md: '', lg: '150px'},
+  // height: { xs: '100%', md: '', lg: '200px'},
+}
 export default NavBar
