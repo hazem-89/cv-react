@@ -1,7 +1,6 @@
 import { Box, BoxProps, styled, SxProps } from '@mui/material'
 import { blueGrey } from '@mui/material/colors';
 import backGroundImage from '../../img/Portfolio/Animal-WarZone/Picture1.png'
-import  './skills.css';
 import React from 'react'
 
 const Skills = () => {
@@ -18,13 +17,22 @@ const Skills = () => {
   return (
     <>
     <LayoutBox >
-      <Box className='mainBox'>
-
-        Skills
+      <Box sx={MainBox}>
+     
       </Box>
     </LayoutBox>
     </>
   )
+}
+const MainBox: SxProps = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  alignSelf: 'center',
+  justifyContent: 'center',
+  backgroundSize: 'cover',
+  color: '#022c33',
+
 }
 const BoxStyle: SxProps = {
   width: { xs: '100%', md: '80%',lg: '100%' },
