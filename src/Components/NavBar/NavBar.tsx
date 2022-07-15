@@ -13,7 +13,7 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import { green } from '@mui/material/colors';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AboutMe from '../AboutMe/AboutMe';
 import Experiences from '../Experiences/Experiences';
 import Skills from '../Skills/Skills';
@@ -21,14 +21,16 @@ import { makeStyles } from '@mui/styles';
 // img
 import faceImg from '../../img/img/face3.jpg'
 import ballon from '../../img/img/Group 9.png'
-import cloud1 from '../../img/img/New folder/cloud1.png'
-import cloud2 from '../../img/img/New folder/cloud2.png'
-import cloud3 from '../../img/img/New folder/cloud3.png'
-import cloud4 from '../../img/img/New folder/cloud4.png'
-import cloud5 from '../../img/img/New folder/cloud5.png'
-import backgroundImage from '../../img/img/New folder/sky-background.jpg'
+import cloud1 from '../../img/img/clouds/cloud1.png'
+import cloud2 from '../../img/img/clouds/cloud2.png'
+import cloud3 from '../../img/img/clouds/cloud3.png'
+import cloud4 from '../../img/img/clouds/cloud4.png'
+import cloud5 from '../../img/img/clouds/cloud5.png'
+import backgroundImage from '../../img/img/clouds/sky-background.jpg'
 import Portfolio from '../Portfolio/Portfolio';
 import { NONAME } from 'dns';
+import LoadingAnimation from '../../LoadingAnimation/LoadingAnimation';
+import Contact from '../ContactMe/Contact';
 
 
 const useStyles = makeStyles({
@@ -60,7 +62,7 @@ const useStyles = makeStyles({
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [activePage, setActivePage] = useState('About');
-  
+  const [loading, setLoading] = useState(false);
   const classes = useStyles();
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
@@ -74,14 +76,23 @@ const NavBar = () => {
       // backgroundColor: blueGrey[700],
     },
   }));
- 
+  const loadingAnimation = () => {
+    setLoading(true)
+    setTimeout(() => {setLoading(false);}, 4200)
+  }
+    // useEffect(() => {
+    //   setLoading(false)
+    // // setTimeout(() => {setLoading(false);}, 4000)
+    // }, []);
+  
+  
   return (
     <>
     <Box sx={ballonBox} className={activePage === 'About' ? 'ballonBoxHom' : activePage === 'Portfoliio' ? 'ballonBoxPort' :activePage === 'skills' ? 'ballonBoxPort' : 'none'}>
     <img style={{ width:'300px', height:'400px', zIndex: '999'}} src={ballon} alt="avtar" />
     {/* <Box component="img" src={ballon} sx={cloudImg} style={{ width:'300px', height:'400px' }}  alt="" /> */}
     </Box>
-    <Box  sx={cloudBox} className='clodBox'>
+    <Box  sx={cloudBox} className='cloudBox'>
       <img  src={cloud1}  alt="" />
       <img  src={cloud2}  alt="" />
       <img  src={cloud3}  alt="" />
@@ -97,31 +108,46 @@ const NavBar = () => {
       <Box sx={AvtarBox}>
         <Avatar alt="Hazem Kawas" src={faceImg} sx={navImg} />
       </Box> : null }
-      <Box onClick={() => setActivePage('About')}>
+      <Box onClick={() => {
+        setActivePage('About')
+        loadingAnimation()
+        }}>
     <Box  sx={AvtarBox}>
       <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }}  ><HomeOutlinedIcon/></Avatar >
       {navOpen ? <Typography sx= {text} >About</Typography> : null }
     </Box>
       </Box>
-      <Box  onClick={() => setActivePage('Experiences')}>
+      <Box  onClick={() => {
+        loadingAnimation()
+        setActivePage('Experiences')
+        }}>
         <Box sx={AvtarBox} >
         <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><ListAltIcon/></Avatar  >
         {navOpen ? <Typography sx= {text} >Experiences</Typography> : null }
         </Box>
       </Box>
-      <Box onClick={() => setActivePage('skills')}>
+      <Box onClick={() => {
+        loadingAnimation()
+        setActivePage('skills')
+    }}>
         <Box sx={AvtarBox} >
         <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><ListAltIcon/></Avatar  >
         {navOpen ? <Typography sx= {text} >Skills</Typography> : null }
         </Box>
       </Box>
-      <Box onClick={() => setActivePage('Portfolio')}>
+      <Box onClick={() => {
+        loadingAnimation()
+        setActivePage('Portfolio')
+        }}>
       <Box   sx={AvtarBox}>
         <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><AccountBoxIcon/></Avatar  >
         {navOpen ? <Typography sx= {text} >Portfolio</Typography> : null }
         </Box>
       </Box>
-      <Box onClick={() => setActivePage('Contact')}>
+      <Box onClick={() => {
+        loadingAnimation()
+        setActivePage('Contact')
+        }}>
       <Box sx={AvtarBox} >
         <Avatar sx={{ bgcolor: 'rgba(33, 253, 253, 0.255)' }} ><ContactMailIcon/></Avatar >
         {navOpen ? <Typography sx= {text} >Contact</Typography> : null }
@@ -131,13 +157,14 @@ const NavBar = () => {
     </Stack>
   </Box>
   </Box>
-  <Box sx={bodyBoxStyle}>
-        {/* {activePage === 'Home' && <Home />} */}
-        {activePage === 'About' && <AboutMe />}
-        {activePage === 'Experiences' && <Experiences />}
-        {activePage === 'skills' && <Skills />}
-        {activePage === 'Portfolio' && <Portfolio />}
-      </Box>
+
+ <Box sx={bodyBoxStyle}>
+       {loading ? <LoadingAnimation/> :  activePage === 'About' && <AboutMe />}
+       {loading ? <LoadingAnimation/> :  activePage === 'Experiences' && <Experiences />}
+       {loading ? <LoadingAnimation/> :  activePage === 'skills' && <Skills />}
+       {loading ? <LoadingAnimation/> :  activePage === 'Portfolio' && <Portfolio />}
+       {loading ? <LoadingAnimation/> :  activePage === 'Contact' && <Contact />}
+     </Box>
     </LayoutBox>
     </>
 
