@@ -1,8 +1,8 @@
 .cloudBox img { 
   position: absolute;
   bottom: 0;
-  /* width: 100%; */
-  animation: cloudAnimation 200s linear infinite;
+  max-width: 100%;
+  animation: cloudAnimation 150s linear infinite;
   z-index: 0;
 }
 
@@ -45,23 +45,18 @@
 }
 .ballonBoxHom img {
   position: absolute;
-  bottom: 10em;
+  top: 0em;
   max-width: 100%;
   animation: ballonBoxHome 15s linear;
-  right: 5em;
+  right: -10em;
 }
 @keyframes ballonBoxHome {
   0%{
-    top: -20em;
-    transform: scale(.5);
+    top: -40em;
 
   }
-  50%{
-    transform: scale(.8);
-  }
   100%{
-    top: 10%;
-    transform: scale(1);
+    top: 0em;
   }
 }
 .none {

@@ -18,19 +18,20 @@ import AboutMe from '../AboutMe/AboutMe';
 import Experiences from '../Experiences/Experiences';
 import Skills from '../Skills/Skills';
 import { makeStyles } from '@mui/styles';
+import Portfolio from '../Portfolio/Portfolio';
+import LoadingAnimation from '../../Animation/LoadingAnimation';
+import Contact from '../ContactMe/Contact';
 // img
 import faceImg from '../../img/img/face3.jpg'
-import ballon from '../../img/img/Group 9.png'
+import ballon from '../../img/img/clouds/newBallon.png'
 import cloud1 from '../../img/img/clouds/cloud1.png'
 import cloud2 from '../../img/img/clouds/cloud2.png'
 import cloud3 from '../../img/img/clouds/cloud3.png'
 import cloud4 from '../../img/img/clouds/cloud4.png'
 import cloud5 from '../../img/img/clouds/cloud5.png'
 import backgroundImage from '../../img/img/clouds/sky-background.jpg'
-import Portfolio from '../Portfolio/Portfolio';
-import { NONAME } from 'dns';
-import LoadingAnimation from '../../LoadingAnimation/LoadingAnimation';
-import Contact from '../ContactMe/Contact';
+import Ballon from '../../img/SVG/Ballon';
+
 
 
 const useStyles = makeStyles({
@@ -88,17 +89,18 @@ const NavBar = () => {
   
   return (
     <>
-    <Box sx={ballonBox} className={activePage === 'About' ? 'ballonBoxHom' : activePage === 'Portfoliio' ? 'ballonBoxPort' :activePage === 'skills' ? 'ballonBoxPort' : 'none'}>
-    <img style={{ width:'300px', height:'400px', zIndex: '999'}} src={ballon} alt="avtar" />
+    <Box sx={ballonBox} className={activePage === 'About' ? 'ballonBoxHom' : activePage === 'Portfolio' ? 'ballonBoxPort' :activePage === 'skills' ? 'ballonBoxPort' : 'none'}>
+    <img style={{ width:'700px', height:'800px', zIndex: '999'}} src={ballon} alt="avtar" />
+    {/* <Ballon  /> */}
     {/* <Box component="img" src={ballon} sx={cloudImg} style={{ width:'300px', height:'400px' }}  alt="" /> */}
     </Box>
-    <Box  sx={cloudBox} className='cloudBox'>
+    {/* <Box  sx={cloudBox} className='cloudBox'>
       <img  src={cloud1}  alt="" />
       <img  src={cloud2}  alt="" />
       <img  src={cloud3}  alt="" />
       <img  src={cloud4}  alt="" />
       <img  src={cloud5}  alt="" />
-    </Box>
+    </Box> */}
     <LayoutBox>
     <Box sx={NavBox} onMouseEnter={() => setNavOpen(true)} onMouseLeave={() => setNavOpen(false)} >
     <Box >
