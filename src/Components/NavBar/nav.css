@@ -23,10 +23,10 @@
 
 .ballonBoxPort img {
   position: absolute;
-  bottom: 10em;
+  top: 2em;
   max-width: 100%;
-  animation: ballonBoxPort 1s linear;
-  right: 5em;
+  animation: ballonBoxPort 5s linear;
+  right: -10em;
 }
 @keyframes ballonBoxPort {
   0%{
@@ -47,7 +47,7 @@
   position: absolute;
   top: 0em;
   max-width: 100%;
-  animation: ballonBoxHome 15s linear;
+  animation: ballonBoxHome 10s linear;
   right: -10em;
 }
 @keyframes ballonBoxHome {

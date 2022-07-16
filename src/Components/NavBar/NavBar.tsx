@@ -79,7 +79,7 @@ const NavBar = () => {
   }));
   const loadingAnimation = () => {
     setLoading(true)
-    setTimeout(() => {setLoading(false);}, 4200)
+    setTimeout(() => {setLoading(false);}, 4000)
   }
     // useEffect(() => {
     //   setLoading(false)
@@ -89,18 +89,18 @@ const NavBar = () => {
   
   return (
     <>
-    <Box sx={ballonBox} className={activePage === 'About' ? 'ballonBoxHom' : activePage === 'Portfolio' ? 'ballonBoxPort' :activePage === 'skills' ? 'ballonBoxPort' : 'none'}>
-    <img style={{ width:'700px', height:'800px', zIndex: '999'}} src={ballon} alt="avtar" />
-    {/* <Ballon  /> */}
-    {/* <Box component="img" src={ballon} sx={cloudImg} style={{ width:'300px', height:'400px' }}  alt="" /> */}
-    </Box>
-    {/* <Box  sx={cloudBox} className='cloudBox'>
+    {!loading ?   
+      <Box sx={ballonBox} className={activePage === 'About' ? 'ballonBoxHom' : activePage === 'Portfolio' ? 'ballonBoxPort' :activePage === 'skills' ? 'ballonBoxPort' : 'none'}>
+      <img style={{ width:'700px', height:'800px', zIndex: '999'}} src={ballon} alt="avtar" />
+      </Box>
+    : null}
+    <Box  sx={cloudBox} className='cloudBox'>
       <img  src={cloud1}  alt="" />
       <img  src={cloud2}  alt="" />
       <img  src={cloud3}  alt="" />
       <img  src={cloud4}  alt="" />
       <img  src={cloud5}  alt="" />
-    </Box> */}
+    </Box>
     <LayoutBox>
     <Box sx={NavBox} onMouseEnter={() => setNavOpen(true)} onMouseLeave={() => setNavOpen(false)} >
     <Box >

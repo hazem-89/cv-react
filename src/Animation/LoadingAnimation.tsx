@@ -15,7 +15,7 @@ const LoadingAnimation = () => {
     <img src={cloud1} alt=""  className="down-right-cloud"/>
    </Box>
    <Box className="middel-left-cloud-Animation-Box" sx={cloudAnimationBox}>
-    <img src={cloud1} alt=""  className="down-right-cloud"/>
+    <img src={cloud1} alt=""  />
    </Box>
    <Box className="up-left-cloud-Animation-Box" sx={cloudAnimationBox}>
     <img src={cloud1} alt=""  className="up-left-cloud"/>
