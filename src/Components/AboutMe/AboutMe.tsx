@@ -43,7 +43,6 @@ const AboutMe = () => {
   const [startFiler, setStartFiler] = useState(false) 
   const [backGroundAnimation, setBackGroundAnimation] = useState(false) 
 
-  const classes = useStyles();
 
   useEffect(() => {
     const backGroundAnimationTimer = window.setTimeout(() => {
@@ -65,33 +64,6 @@ const AboutMe = () => {
 
   return (
     <Box sx={AboutBoxStyle}>
-      {/* {backGroundAnimation ?  <Box className={classes.root} sx={root}>
-      <svg width="300px" height="300px"  viewBox="0 0 94 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_d_1_3)">
-        <path d="M10.0312 26.0615L31.1146 25.3816L46.2083 0.654995L49.4396 0.569244L37.9188 33.6402L18.8437 33.679L10.0312 26.0615ZM18.6875 72.4625L24.3521 52.546L4.8125 31.0207L5.69792 27.9725L34.4333 48.6648L28.7458 66.509L18.6875 72.4625ZM64.35 79.2388L46.4646 68.2709L19.8646 80.5332L17.1333 78.8386L45.525 57.6951L61.3771 68.0953L64.35 79.2388ZM84.0833 37.1396L68.1396 50.6799L72.3 79.202L69.8458 81.2641L57.5479 48.4606L72.3417 36.6598L84.0833 37.1396ZM51.8396 5.46312L59.3083 24.7997L88.0583 30.8084L89.1875 33.777H53.5292L47.3292 16.0982L51.8396 5.46312Z" fill="url(#paint0_linear_1_3)" fill-opacity="0.34" shape-rendering="crispEdges"/>
-        <path d="M10.0312 26.0615L31.1146 25.3816L46.2083 0.654995L49.4396 0.569244L37.9188 33.6402L18.8437 33.679L10.0312 26.0615ZM18.6875 72.4625L24.3521 52.546L4.8125 31.0207L5.69792 27.9725L34.4333 48.6648L28.7458 66.509L18.6875 72.4625ZM64.35 79.2388L46.4646 68.2709L19.8646 80.5332L17.1333 78.8386L45.525 57.6951L61.3771 68.0953L64.35 79.2388ZM84.0833 37.1396L68.1396 50.6799L72.3 79.202L69.8458 81.2641L57.5479 48.4606L72.3417 36.6598L84.0833 37.1396ZM51.8396 5.46312L59.3083 24.7997L88.0583 30.8084L89.1875 33.777H53.5292L47.3292 16.0982L51.8396 5.46312Z" stroke="#479D98" stroke-linecap="round" stroke-linejoin="round" shape-rendering="crispEdges"/>
-        </g>
-        <defs>
-        <filter id="filter0_d_1_3" x="0.312485" y="0.0692444" width="93.375" height="89.6948" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-        <feOffset dy="4"/>
-        <feGaussianBlur stdDeviation="2"/>
-        <feComposite in2="hardAlpha" operator="out"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_3"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_3" result="shape"/>
-        </filter>
-        <linearGradient id="paint0_linear_1_3" x1="66" y1="16.5" x2="19.5" y2="79.5" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#6DD2AE" stop-opacity="0.41"/>
-        <stop offset="1" stop-color="#F0F8F6" stop-opacity="0"/>
-        </linearGradient>
-        </defs>
-      </svg>
-
-
-        </Box> : null} */}
-     
       <Box sx={aboutDiv}>
       <Box sx={aboutText}>
         <Typography sx={aboutMainText}>
@@ -99,9 +71,9 @@ const AboutMe = () => {
         </Typography>
       </Box>
       <Box sx={aboutMainPicBoxStyle}>
-        <Box sx={picFilter} >
+        {/* <Box sx={picFilter} >
 
-        </Box>
+        </Box> */}
       <Avatar alt="Hazem Kawas" src={faceImg} sx={aboutMainPicStyle} />
       </Box>
       <Box sx={aboutInfo}>
@@ -139,88 +111,83 @@ const AboutMe = () => {
   )
 }
 const root: SxProps = {
-  width: { xs: '150px', md: '150px', lg: '300px' },
-  height:  { xs: '150px', md: '150px', lg: '300px', xl: '150px' },
+  width: { xs: '150px', md: '300px', lg: '300px' },
+  height:  { xs: '150px', md: '300px', lg: '300px', xl: '150px' },
   borderRadius: '50%',
-  position: { xs: 'absolute', md: '', lg: 'absolute', xl: '' },
-  top: { xs: '20em', md: '0', lg: '10em', xl: '0' },
-  left: { xs: '2em', md: '0', lg: '45em', xl: '0' },
+  position: { xs: 'absolute', md: 'absolute', lg: 'absolute', xl: 'absolute' },
+  top: { xs: '20em', md: '10em', lg: '10em', xl: '0' },
+  left: { xs: '2em', md: '45em', lg: '45em', xl: '0' },
 }
 const AboutBoxStyle: SxProps = {
-  width: { xs: '100%', md: '50%', lg: '100%' },
+  width: { xs: '100%', md: '100%', lg: '100%' },
   paddingTop: { xs: '3em', md: '0em', lg: '0em' },
-  paddingLeft: { xs: '0em', md: '0', lg: '2em'},
+  paddingLeft: { xs: '0em', md: '2em', lg: '2em'},
 }
 const aboutDiv: SxProps = {
   // width: { xs: '100%', md: '100%', lg: '100%', xl: '100%' },
   display: 'flex',
-  flexDirection: {xs: 'column', md: 'column', lg: 'row'},
+  flexDirection: {xs: 'column', md: 'row', lg: 'row'},
   // justifyContent: 'center',
   alignItems: 'center',
   // height: '90vh',
-  paddingLeft: {xs: '0', md: '0', lg: '1em'},
+  paddingLeft: {xs: '0', md: '1em', lg: '1em'},
 }
 const aboutMainText: SxProps = {
   width: { xs: '180px', md: '100%', lg: '100%', xl: '100%' },
   // height: { xs: '100px', md: '100%', lg: '100%', xl: '100%' },
-  position: { xs: 'absolute', md: 'absolute', lg: 'relative', xl: '' },
+  position: { xs: 'absolute', md: 'relative', lg: 'relative', xl: 'relative' },
   top: { xs: '-9em', md: '0', lg: '0', xl: '0' },
   left: { xs: '6em', md: '0', lg: '0', xl: '0' },
   zIndex: '1',
   // padding: '10px'
 }
 const aboutMainPicBoxStyle: SxProps = {
-  position: { xs: 'absolute', md: '', lg: 'relative', xl: '' },
-  top: { xs: '7em', md: '0', lg: '0', xl: '0' },
-  left: { xs: '1em', md: '0', lg: '0', xl: '0' },
+  position: { xs: 'absolute', md: 'absolute', lg: 'absolute', xl: 'absolute' },
+  top: { xs: '7em', md: '5em', lg: '5em', xl: '2em' },
+  left: { xs: '1em', md: '35%', lg: '25%', xl: '25%' },
+  transform: { xs: '0', md: 'translate(-50%, 0%)', lg: 'translate(-50%, 0%)', xl: 'translate(-50%, 0%)' },
   zIndex: '0'
 }
 const aboutMainPicStyle: SxProps = {
-  width:  { xs: '200px', md: '200px', lg: '300px', xl: '500px' },
-  height:  { xs: '200px', md: '200px', lg: '300px', xl: '500px' },
+  width:  { xs: '200px', md: '300px', lg: '300px', xl: '400px' },
+  height:  { xs: '200px', md: '300px', lg: '300px', xl: '400px' },
 }
 
-const picFilter: SxProps = {
-  width:  { xs: '200px', md: '200px', lg: '300px', xl: '500px' },
-  position: { xs: 'absolute', md: '', lg: '', xl: '' },
-  display: { xs: 'block', md: 'block', lg: 'block', xl: 'block' },
-  height:  { xs: '200px', md: '200px', lg: '300px', xl: '500px' },
-  borderRadius: '50%',
-  backgroundImage: 'linear-gradient(120deg, hsla(120,100%,50%,0.5),hsla(290,60%,70%,0.5));',
-  zIndex: '1',
-}
-// // 
 const aboutText: SxProps = {
-  width: { xs: '150px', md: '50%', lg: '500px' },
+  width: { xs: '150px', md: '500px', lg: '500px' },
   display: 'flex',
   // justifyContent: 'center',
   alignItems: 'flex-start',
-  position: { xs: 'relative', md: 'relative', lg: 'absolute', xl: '' },
-  bottom: { xs: '0em', md: '0', lg: '8em', xl: '0' },
-  left: { xs: '0em', md: '0', lg: '10em', xl: '0' },
-  zIndex: '1',
+  position: { xs: 'relative', md: 'absolute', lg: 'absolute', xl: '' },
+  top: { xs: '0em', md: '25em', lg: '25em', xl: '30em' },
+  left: { xs: '0em', md: '20%', lg: '15%', xl: '15%' },
+  zIndex: '2',
 }
 const aboutIcons: SxProps = {
   position: { xs: 'absolute', md: 'absolute', lg: 'absolute', xl: '' },
-  bottom: { xs: '1em', md: '0', lg: '1em', xl: '0' },
-  left: { xs: '50%', md: '0', lg: '50%', xl: '0' },
-  transform: { xs: 'translate(-50%, 0%)', md: '0', lg: '0', xl: '0' },
+  bottom: { xs: '1em', md: '1em', lg: '1em', xl: '0' },
+  left: { xs: '50%', md: '50%', lg: '50%', xl: '50%' },
+  transform: { xs: 'translate(-50%, 0%)', md: 'translate(-50%, 0%)', lg: '0', xl: '0' },
+  zIndex: '1',
 }
 const icons: SxProps = {
-  width:  { xs: '30px', md: '20px', lg: '40px' },
-  height:  { xs: '30px', md: '20px', lg: '40px' },
+  width:  { xs: '30px', md: '30px', lg: '40px' },
+  height:  { xs: '30px', md: '30px', lg: '40px' },
+  fill: '#DE5656'
 }
 const popUp: SxProps = {
   width: {xs: '100px', md: '100px', lg: '150px'},
   height: '50px',
   backgroundColor: '#fff',
   position: 'absolute',
-  left: { xs: '50%', md: '0', lg: '50%', xl: '0' },
-  bottom: '2.5em',
-  transform: { xs: 'translate(50%, -20%)', md: '0', lg: 'translate(+40%, -40%)', xl: '0' },
+  left: { xs: '50%', md: '50%', lg: '50%', xl: '50%' },
+  bottom: { xs: '2.5em', md: '2em', lg: '2.5em', xl: '1em' },
+  transform: { xs: 'translate(50%, -20%)', md: 'translate(+40%, -40%)', lg: 'translate(+40%, -40%)', xl: 'translate(+40%, -40%)' },
   borderRadius: '1em 1em  1em 0.1em',
   display: 'flex',
   alignItems: 'center',
+  zIndex: '2',
+  border: '1px dashed #DE5656'
 }
 const popUpText: SxProps = {
   color: 'rgb(141, 15, 15)',
@@ -229,7 +196,7 @@ const popUpText: SxProps = {
 }
 
 const aboutInfo: SxProps = {
-  width: { xs: '50', md: '50%', lg: '100%' },
+  width: { xs: '50', md: '100%', lg: '100%' },
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

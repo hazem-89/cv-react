@@ -1,9 +1,8 @@
-import { Box, BoxProps, IconButton, ImageList, ImageListItem, ImageListItemBar, ListSubheader, styled, SxProps, Typography } from '@mui/material'
+import { Box, IconButton, ImageList, ImageListItem, ImageListItemBar, ListSubheader, styled, SxProps, Typography } from '@mui/material'
 import { blueGrey } from '@mui/material/colors';
 import { useState } from 'react';
 import './Experiences.css'
 import InfoIcon from '@mui/icons-material/Info';
-import mediainstuPic from '../../img/work/download.jpg'
 
 
 const Experiences = () => {
@@ -11,20 +10,6 @@ const Experiences = () => {
  const [isEduSecOpen, setIsEduSecOpen] = useState(false)
  const [activeSec, setActiveSec] = useState(false)
 
-  // const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
-  //   color: theme.palette.getContrastText(blueGrey[900]),
-  //   backgroundColor: '#011114',
-  //   height: '100vh',
-  //   display: 'flex',
-  //   marginLeft: '10%',
-  //   justifyContent: 'space-between',
-  //   textColor: blueGrey[900],
-  //   flexDirection: 'row',
-  //   '&:hover': {
-  //     // backgroundColor: blueGrey[700],
-  //   },
-  // }));
- 
   return (
     <Box sx={LayoutBox}>
       <Box className= {isEduSecOpen ? 'animation' : 'noAnimation' }>
@@ -170,9 +155,7 @@ const Experiences = () => {
           </Typography>
       </Box> 
     }
-
     </Box>
-    
     </Box>
   )
 }
@@ -187,6 +170,7 @@ const LayoutBox: SxProps = {
   alignItems: 'center',
   justifyContent: 'space-between',
   textColor: blueGrey[900],
+  zIndex: '1'
 }
 const BoxStyle: SxProps = {
   width: { xs: '100%', md: '80%',lg: '100%' },

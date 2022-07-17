@@ -14,6 +14,35 @@
     transform: translate(100%);
   }
 }
+.BigCloudBox img { 
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: BigCloudBoxAnimation 150s linear infinite;
+  z-index: 0;
+}
+
+@keyframes BigCloudBoxAnimation {
+  0%{
+    transform: translate(-100%);
+  }
+  100%{
+    transform: translate(100%);
+  }
+}
+
+
+.ballon-big-box{
+  position: relative;
+  /* width: 10em; */
+}
+.baloon-img {
+  /*  */
+  z-index: 1;
+  position: relative;
+  
+}
+
 .ballonBoxPort{
   position: absolute;
   overflow: hidden;
@@ -24,20 +53,26 @@
 .ballonBoxPort img {
   position: absolute;
   top: 2em;
-  max-width: 100%;
   animation: ballonBoxPort 5s linear;
-  right: -10em;
+  right: 0em;
 }
 @keyframes ballonBoxPort {
   0%{
     right: -20em;
   }
   100%{
-    right: 5em;
+    right: 0em;
 
   }
 }
-
+.ballon-text {
+  color: red;
+  position: absolute;
+  top: 20em;
+  left: 50%;
+  z-index: 2;
+  animation: ballonBoxHome 10s linear;
+}
 .ballonBoxHom {
   position: absolute;
   overflow: hidden;
@@ -48,7 +83,7 @@
   top: 0em;
   max-width: 100%;
   animation: ballonBoxHome 10s linear;
-  right: -10em;
+  right: 0em;
 }
 @keyframes ballonBoxHome {
   0%{
@@ -61,4 +96,21 @@
 }
 .none {
   display: none;
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .baloon-img {
+    height: 600px;
+    width: 300px;
+  }
+
+}
+@media (min-width: 1200px) {
+  .baloon-img {
+    height: 800px;
+    width: 450px;
+  }
 }
