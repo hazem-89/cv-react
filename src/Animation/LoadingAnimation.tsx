@@ -11,7 +11,7 @@ const LoadingAnimation = () => {
   return (
     <>
     <Box sx={AnimationBox}>
-    <Box className="middel-right-cloud-Animation-Box" sx={cloudAnimationBox}>
+    {/* <Box className="middel-right-cloud-Animation-Box" sx={cloudAnimationBox}>
     <img src={cloud1} alt=""  className="down-right-cloud"/>
    </Box>
    <Box className="middel-left-cloud-Animation-Box" sx={cloudAnimationBox}>
@@ -28,7 +28,7 @@ const LoadingAnimation = () => {
    </Box>
    <Box className="down-right-cloud-Animation-Box" sx={cloudAnimationBox}>
     <img src={cloud1} alt=""  className="down-right-cloud"/>
-   </Box>
+   </Box> */}
    
    </Box>
     </>
