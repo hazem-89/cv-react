@@ -4,7 +4,7 @@ import { Avatar, Typography } from '@mui/material';
 import faceImg from '../../img/img/face1.jpg'
 import Typewriter from "typewriter-effect";
 import { makeStyles } from '@mui/styles';
-
+import '../../SmokeAnimation.css'
 // icons
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -66,17 +66,17 @@ const AboutMe = () => {
     <Box sx={AboutBoxStyle}>
       <Box sx={aboutDiv}>
       <Box sx={aboutText}>
-        <Typography sx={aboutMainText}>
+        <Typography sx={aboutMainText} >
           <TypewriterEffec />
         </Typography>
       </Box>
-      <Box sx={aboutMainPicBoxStyle}>
+      <Box sx={aboutMainPicBoxStyle} className='fadeIn'>
         {/* <Box sx={picFilter} >
 
         </Box> */}
       <Avatar alt="Hazem Kawas" src={faceImg} sx={aboutMainPicStyle} />
       </Box>
-      <Box sx={aboutInfo}>
+      <Box sx={aboutInfo} className="fadeIn">
         About Me
       </Box>
       </Box>
@@ -146,11 +146,13 @@ const aboutMainPicBoxStyle: SxProps = {
   top: { xs: '7em', md: '5em', lg: '5em', xl: '2em' },
   left: { xs: '1em', md: '35%', lg: '25%', xl: '25%' },
   transform: { xs: '0', md: 'translate(-50%, 0%)', lg: 'translate(-50%, 0%)', xl: 'translate(-50%, 0%)' },
-  zIndex: '0'
+  zIndex: '0',
+  overflow: 'hidden',
 }
 const aboutMainPicStyle: SxProps = {
   width:  { xs: '200px', md: '300px', lg: '300px', xl: '400px' },
   height:  { xs: '200px', md: '300px', lg: '300px', xl: '400px' },
+  overflow: 'hidden',
 }
 
 const aboutText: SxProps = {

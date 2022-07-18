@@ -2,6 +2,9 @@ import { Box, BoxProps, styled, SxProps } from '@mui/material'
 import { blueGrey } from '@mui/material/colors';
 import backGroundImage from '../../img/Portfolio/Animal-WarZone/Picture1.png'
 import React from 'react'
+import WordCloud from "react-wordcloud"
+import Cloud from "react-wordcloud"
+import Sidebar from "react-wordcloud"
 
 const Skills = () => {
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
@@ -18,7 +21,7 @@ const Skills = () => {
     <>
     <LayoutBox >
       <Box sx={MainBox}>
-     
+
       </Box>
     </LayoutBox>
     </>

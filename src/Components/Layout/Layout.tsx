@@ -1,5 +1,5 @@
 import { Box, SxProps} from '@mui/material'
-import NavBar from '../NavBar/NavBar'
+import NavBar from '../MainPage/MainPage'
 
 
 
