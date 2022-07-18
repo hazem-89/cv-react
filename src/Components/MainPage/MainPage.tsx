@@ -17,7 +17,6 @@ import Experiences from '../Experiences/Experiences';
 import Skills from '../Skills/Skills';
 import { makeStyles } from '@mui/styles';
 import Portfolio from '../Portfolio/Portfolio';
-import LoadingAnimation from '../../Animation/LoadingAnimation';
 import Contact from '../ContactMe/Contact';
 // img
 import faceImg from '../../img/img/face3.jpg'
