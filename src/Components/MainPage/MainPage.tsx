@@ -5,14 +5,12 @@ import Stack from '@mui/material/Stack';
 import { styled, SxProps } from '@mui/material/styles';
 import { Avatar,Typography } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './nav.css'
+import './MainPage.css'
 //Icons
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ListAltIcon from '@mui/icons-material/ListAlt';
-import { green } from '@mui/material/colors';
 import { useEffect, useState } from 'react';
 import AboutMe from '../AboutMe/AboutMe';
 import Experiences from '../Experiences/Experiences';
@@ -35,36 +33,15 @@ import Ballon from '../../img/SVG/Baloon';
 
 
 
-const useStyles = makeStyles({
-  ballon: {
-    animation: "$indeterminate1 15s linear forwards",
-    translate: 'translate(-50%)',
-
-  },
-  bar2Indeterminate: {
-    display: "none"
-  },
-  "@keyframes indeterminate1": {
-    "0%": {
-      top: "0",
-      opacity: '0',
-      transform: "scale(.5)"
-    },
-    '50%':{
-      opacity: '.5',
-      transform: "scale(.8)"
-    },
-    "100%": {
-      top: "10%",
-      opacity: '1',
-      transform: "scale(1)",
-    }
-  },
-});
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [activePage, setActivePage] = useState('About');
   const [loading, setLoading] = useState(false);
+
+
+
+ const [smokFilter, setSmokFilter] = useState(false);
+
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
     height: '100vh',
@@ -78,90 +55,106 @@ const NavBar = () => {
     },
   }));
   const loadingAnimation = () => {
-    setLoading(true)
-    setTimeout(() => {setLoading(false);}, 4000)
+    // setLoading(true)
+    setSmokFilter(true)
+    // setTimeout(() => {setLoading(false);}, 4000)
   }
-    // useEffect(() => {
-    //   setLoading(false)
-    // // setTimeout(() => {setLoading(false);}, 4000)
-    // }, []);
+    useEffect(() => {
+      // setLoading(false)
+    setTimeout(() => {if( smokFilter) setSmokFilter(false)}, 3000)
+    }, [smokFilter]);
+  console.log(loading);
   
   
   return (
     <>
     <Box>
-    {!loading ?  
-      <Box sx={ballonBox} className={activePage === 'About' ? 'ballonBoxHom' : activePage === 'Portfolio' ? 'ballonBoxPort' :activePage === 'skills' ? 'ballonBoxPort' : 'none'}>
+    {!loading && !smokFilter ?  
+      <Box sx={ballonBox} className=
+      {
+        activePage === 'About' ? 
+        'ballonBoxHom' : activePage === 
+        'Portfolio' ? 'ballonBoxPort' :activePage === 
+        'skills' ? 'ballonBoxPort' : 'Experiences' ? 
+        'ballonBoxPort' : 'none'
+        
+        }>
         <Box className="ballon-big-box">
       <img className='baloon-img' src={ballon} alt="avtar" />
-      <Box className="ballon-text">
+      {/* <Box className="ballon-text">
         Sone text
-      </Box>
+      </Box> */}
       </Box>
     </Box> 
     : null}
-    <Box  sx={cloudBox} className='cloudBox'>
-      <img  src={cloud1}  alt="" />
-      <img  src={cloud2}  alt="" />
-      <img  src={cloud3}  alt="" />
-      <img  src={cloud4}  alt="" />
-      <img  src={cloud5}  alt="" />
-    </Box>
-    <Box  sx={bigbigCloudloudBox} className='BigCloudBox'>
-      <img  src={bigCloud}  alt="" />
-    </Box>
+    {!smokFilter ? 
+    <Box>
+    <Box  sx={cloudBox} className= 'cloudBox'>
+          <img  src={cloud1}  alt="" />
+          <img  src={cloud2}  alt="" />
+          <img  src={cloud3}  alt="" />
+          <img  src={cloud4}  alt="" />
+          <img  src={cloud5}  alt="" />
+        </Box>
+        
+        <Box  sx={bigbigCloudloudBox} className='BigCloudBox'>
+          <img  src={bigCloud}  alt="" />
+        </Box>
+        </Box>
+    : null }
+    
     <LayoutBox>
-    <Box sx={NavBox} onMouseEnter={() => setNavOpen(true)} onMouseLeave={() => setNavOpen(false)} >
+    <Box sx={NavBox}  >
     <Box >
     <Stack spacing={2}>
     <Box sx={NaveBoxInner}>
-      {activePage !== 'About' ?
-      <Box sx={AvtarBox}>
+      {activePage !== 'About' && !smokFilter ?
+      <Box sx={AvtarBox} className= 'fadein'>
         <Avatar alt="Hazem Kawas" src={faceImg} sx={navImg} />
       </Box> : null }
       <Box onClick={() => {
         setActivePage('About')
         loadingAnimation()
         }}>
-    <Box  sx={AvtarBox}>
-      <Avatar sx={{ bgcolor: '#DE5656' }}  ><HomeOutlinedIcon/></Avatar >
-      {navOpen ? <Typography sx= {text} >About</Typography> : null }
+    <Box  sx={AvtarBox} className={smokFilter ? 'nave-items' : 'fadein'}>
+      <Avatar sx={{ bgcolor: '#DE5656' }} className={smokFilter ? 'filter' : 'normal'}><HomeOutlinedIcon/></Avatar >
+      {/* {navOpen && !smokFilter ? <Typography sx= {text} >About</Typography> : null } */}
     </Box>
       </Box>
       <Box  onClick={() => {
         loadingAnimation()
         setActivePage('Experiences')
         }}>
-        <Box sx={AvtarBox} >
-        <Avatar sx={{ bgcolor: '#DE5656' }} ><ListAltIcon/></Avatar  >
-        {navOpen ? <Typography sx= {text} >Experiences</Typography> : null }
+        <Box sx={AvtarBox} className={smokFilter ? 'nave-items' : 'fadein'}>
+        <Avatar sx={{ bgcolor: '#DE5656' }} className={smokFilter ? 'filter' : 'normal'} ><ListAltIcon/></Avatar  >
+        {/* {navOpen && !smokFilter ? <Typography sx= {text} >Experiences</Typography> : null } */}
         </Box>
       </Box>
       <Box onClick={() => {
         loadingAnimation()
-        setActivePage('skills')
+        setActivePage('Skills')
     }}>
-        <Box sx={AvtarBox} >
-        <Avatar sx={{ bgcolor: '#DE5656' }} ><ListAltIcon/></Avatar  >
-        {navOpen ? <Typography sx= {text} >Skills</Typography> : null }
+        <Box sx={AvtarBox} className={smokFilter ? 'nave-items' : 'fadein'}>
+        <Avatar sx={{ bgcolor: '#DE5656' }} className={smokFilter ? 'filter' : 'normal'}><ListAltIcon/></Avatar  >
+        {/* {navOpen && !smokFilter ?  <Typography sx= {text} >Skills</Typography> : null } */}
         </Box>
       </Box>
       <Box onClick={() => {
         loadingAnimation()
         setActivePage('Portfolio')
         }}>
-      <Box   sx={AvtarBox}>
-        <Avatar sx={{ bgcolor: '#DE5656' }} ><AccountBoxIcon/></Avatar  >
-        {navOpen ? <Typography sx= {text} >Portfolio</Typography> : null }
+      <Box   sx={AvtarBox} className={smokFilter ? 'nave-items' : 'fadein'}>
+        <Avatar sx={{ bgcolor: '#DE5656' }} className={smokFilter ? 'filter' : 'normal'}><AccountBoxIcon/></Avatar  >
+        {/* {navOpen && !smokFilter ? <Typography sx= {text} >Portfolio</Typography> : null } */}
         </Box>
       </Box>
       <Box onClick={() => {
         loadingAnimation()
         setActivePage('Contact')
         }}>
-      <Box sx={AvtarBox} >
-        <Avatar sx={{ bgcolor: '#DE5656' }} ><ContactMailIcon/></Avatar >
-        {navOpen ? <Typography sx= {text} >Contact</Typography> : null }
+      <Box sx={AvtarBox} className={smokFilter ? 'nave-items' : 'fadein'}>
+        <Avatar sx={{ bgcolor: '#DE5656' }} className={smokFilter ? 'filter' : 'normal'}><ContactMailIcon/></Avatar >
+        {/* {navOpen && !smokFilter ? <Typography sx= {text} >Contact</Typography> : null } */}
         </Box>
       </Box>
     </Box>
@@ -170,11 +163,11 @@ const NavBar = () => {
   </Box>
 
  <Box sx={bodyBoxStyle}>
-       {loading ? <LoadingAnimation/> :  activePage === 'About' && <AboutMe />}
-       {loading ? <LoadingAnimation/> :  activePage === 'Experiences' && <Experiences />}
-       {loading ? <LoadingAnimation/> :  activePage === 'skills' && <Skills />}
-       {loading ? <LoadingAnimation/> :  activePage === 'Portfolio' && <Portfolio />}
-       {loading ? <LoadingAnimation/> :  activePage === 'Contact' && <Contact />}
+       {smokFilter ? null : activePage === 'About' && <AboutMe  />}
+       {smokFilter ? null : activePage === 'Experiences' && <Experiences />}
+       {smokFilter ? null : activePage === 'Skills' && <Skills />}
+       {smokFilter ? null : activePage === 'Portfolio' && <Portfolio />}
+       {smokFilter ? null : activePage === 'Contact' && <Contact />}
      </Box>
 
 
@@ -247,9 +240,8 @@ const ballonBox: SxProps = {
   overflow: 'hidden',
   width: { xs: '100%', md: '100%', lg: '100%', xl:'500px'},
   height: { xs: '100%', md: '100%', lg: '100%'},
-  position: 'relative',
   marginLeft: { xs: '0', md: '', lg: '0em', xl:'68em'},
-  display: { xs: 'none', md: 'block', lg: 'block', xl:'block'},
+  // display: { xs: 'none', md: 'block', lg: 'block', xl:'block'},
 }
 const cloudBox: SxProps = {
   position: 'absolute',
@@ -269,10 +261,8 @@ const bigbigCloudloudBox: SxProps = {
   overflow: 'hidden',
   zIndex: '1'
 }
-const cloudImg: SxProps = {
-  position: 'absolute',
-  bottom: '0',
-  maxWidth: '100%',
+const none: SxProps = {
+ display: 'none',
   // width: { xs: '100%', md: '', lg: '150px'},
   // height: { xs: '100%', md: '', lg: '200px'},
 }

@@ -1,3 +1,54 @@
+.nave-items {
+  animation: goneWithWind 3s linear forwards;
+  transform-origin: left ;
+}
+
+@keyframes goneWithWind {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0px) translateY(0) rotate(180deg) scale(1.5);
+  }
+  50% {
+    opacity: .5;
+    pointer-events: none;
+    transform: translateX(600px) translateY(0px) rotate(360deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateX(900px) translateY(-200px) rotate(680deg) scale(.3);
+  }
+}
+
+.filter {
+  animation: filter 3s linear;
+}
+@keyframes filter {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    background-color: azure;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+.fadein{
+  animation: fadein 3s linear;
+}
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+
 .cloudBox img { 
   position: absolute;
   bottom: 0;
@@ -31,9 +82,26 @@
   }
 }
 
-
+.cloudBox-loading img{
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: loadingCloudAnimation 3s linear forwards;
+  z-index: 0;
+}
+@keyframes loadingCloudAnimation {
+  0%{
+    transform: translate(-100%);
+    opacity: .5;
+  }
+  100%{
+    transform: translate(100%);
+    opacity: 0;
+  }
+}
 .ballon-big-box{
   position: relative;
+  z-index: 1;
   /* width: 10em; */
 }
 .baloon-img {
@@ -46,14 +114,14 @@
 .ballonBoxPort{
   position: absolute;
   overflow: hidden;
-  z-index: 0;
+  z-index: 1;
 }
 
 
 .ballonBoxPort img {
   position: absolute;
   top: 2em;
-  animation: ballonBoxPort 5s linear;
+  animation: ballonBoxPort 10s linear;
   right: 0em;
 }
 @keyframes ballonBoxPort {
@@ -78,11 +146,12 @@
   overflow: hidden;
   z-index: 1;
 }
+
 .ballonBoxHom img {
   position: absolute;
   top: 0em;
   max-width: 100%;
-  animation: ballonBoxHome 10s linear;
+  animation: ballonBoxHome 5s linear;
   right: 0em;
 }
 @keyframes ballonBoxHome {
@@ -94,6 +163,26 @@
     top: 0em;
   }
 }
+
+/* .loadinFilter img {
+  position: absolute;
+  top: 0em;
+  max-width: 100%;
+  animation: ballonBoxHome 10s linear;
+  right: 0em;
+}
+@keyframes ballonBoxHome {
+  0%{
+    top: 0em;
+
+  }
+  100%{
+    top: 50em;
+  }
+} */
+
+
+
 .none {
   display: none;
 }
@@ -114,3 +203,6 @@
     width: 450px;
   }
 }
+
+
+
