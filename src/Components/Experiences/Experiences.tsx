@@ -116,7 +116,7 @@ const Experiences = () => {
     </Box>
     <Box sx={BoxStyle} className={isEduSecOpen ? 'innerBox' : 'noBorderAnimation' }>
       {isEduSecOpen ? 
-      <Box className="education" sx={imageListBox}>
+      <Box className="education" >
         <ImageList sx={imageListBox}>
         {educationData.map((item) => (
           <ImageListItem key={item.img}>
@@ -161,7 +161,7 @@ const Experiences = () => {
 }
 
 const LayoutBox: SxProps = {
-  width: { xs: '100%', md: '100%',lg: '100%' },
+  width: { xs: '100%', md: '100%',lg: '100%', xl: '100%'},
   paddingLeft: { xs: '0', md: '0',lg: '2em' },
   paddingTop: { xs: '10em', md: '0',lg: '0' },
   height: '100vh',
@@ -213,9 +213,9 @@ const mainTextsActive: SxProps = {
   minWidth: { xs: '250px', md: '80%',lg: '350px' },
 }
 const imageListBox: SxProps = {
-  maxWidth: { xs: '350px', md: '80%',lg: '500px' },
-  maxHeight: { xs: '340px', md: '80%',lg: '500px' },
-  borderRadius: '2em'
+  width: { xs: '350px', md: '80%',lg: '800px',xl: '600px' },
+  height: { xs: '340px', md: '80%',lg: '800px', xl: '600px' },
+  borderRadius: '2em',
 }
 
 

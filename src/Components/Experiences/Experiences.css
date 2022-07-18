@@ -14,7 +14,7 @@
 .innerBox{
   margin: 10px;
   position: relative;
-  height: calc(100% - 10px);
+  height: calc(100% - 40px);
   display: flex;
   align-items: 'center';
   justify-content: "center";
@@ -23,7 +23,7 @@
 }
 .innerBox::before{
   content: "";
-  background: linear-gradient(#f9c9ff73, #e998e965);
+  background: linear-gradient(#de5656bb, #7a3333);
   width: 400px;
   height: 140%;
   position: absolute;
@@ -43,14 +43,14 @@
 @keyframes borderAnimayin {
   0%{
     transform: rotate(45deg);
-    background: linear-gradient(#f3827a73, #f061619d);
+    background: linear-gradient(#f9c9ff3a, #e998e93d);
   }
   /* 50%{
     transform: rotate(360deg)
   } */
-  100%{
+  50%{
     transform: rotate(220deg);
-    background: linear-gradient(#7af39473, #61f08c9d);
+    background: linear-gradient(#7aeff373, #3359859d);
     }
 }
 .animation {
@@ -106,6 +106,7 @@
 
 .education {
   z-index: 9999;
+  /* height: 100%; */
 }
 
 

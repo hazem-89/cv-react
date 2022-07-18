@@ -156,7 +156,6 @@ const aboutMainPicStyle: SxProps = {
 const aboutText: SxProps = {
   width: { xs: '150px', md: '500px', lg: '500px' },
   display: 'flex',
-  // justifyContent: 'center',
   alignItems: 'flex-start',
   position: { xs: 'relative', md: 'absolute', lg: 'absolute', xl: '' },
   top: { xs: '0em', md: '25em', lg: '25em', xl: '30em' },

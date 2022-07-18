@@ -65,7 +65,6 @@ const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [activePage, setActivePage] = useState('About');
   const [loading, setLoading] = useState(false);
-  const classes = useStyles();
   const LayoutBox = styled(Box)<BoxProps>(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[900]),
     height: '100vh',
