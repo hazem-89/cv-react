@@ -1,0 +1,40 @@
+/* .bubbleBox{
+  position: absolute;
+  height: 100%;
+  display: flex;
+} */
+
+.bubbleBox{
+  z-index: 9999;
+  }
+.ballbox img {
+  z-index: 9999;
+}
+/* .bubble{
+  position: absolute;
+  top: 0;
+  animation: bubbleAnimation 20s linear infinite;
+  user-select: none;
+}
+
+@keyframes bubbleAnimation {
+  0%{
+    top: 0;
+  }
+  25%{
+    left: .5em;
+    top: 10em;
+  }
+  50%{
+    left: 1em;
+    top: 35em;
+  }
+  75%{
+    left: .5em;
+    top: 10em;
+  }
+  100%{
+    left:0;
+    top: 0em;
+  }
+} */
