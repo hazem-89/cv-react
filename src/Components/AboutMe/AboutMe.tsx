@@ -146,13 +146,13 @@ const aboutMainPicBoxStyle: SxProps = {
   top: { xs: '7em', md: '5em', lg: '5em', xl: '2em' },
   left: { xs: '1em', md: '35%', lg: '25%', xl: '25%' },
   transform: { xs: '0', md: 'translate(-50%, 0%)', lg: 'translate(-50%, 0%)', xl: 'translate(-50%, 0%)' },
-  zIndex: '0',
   overflow: 'hidden',
 }
 const aboutMainPicStyle: SxProps = {
   width:  { xs: '200px', md: '300px', lg: '300px', xl: '400px' },
   height:  { xs: '200px', md: '300px', lg: '300px', xl: '400px' },
   overflow: 'hidden',
+  zIndex: '0'
 }
 
 const aboutText: SxProps = {
@@ -162,14 +162,16 @@ const aboutText: SxProps = {
   position: { xs: 'relative', md: 'absolute', lg: 'absolute', xl: '' },
   top: { xs: '0em', md: '25em', lg: '25em', xl: '30em' },
   left: { xs: '0em', md: '20%', lg: '15%', xl: '15%' },
-  zIndex: '2',
+  zIndex: '3',
+  userSelect: 'none'
+
 }
 const aboutIcons: SxProps = {
   position: { xs: 'absolute', md: 'absolute', lg: 'absolute', xl: '' },
   bottom: { xs: '1em', md: '1em', lg: '1em', xl: '0' },
   left: { xs: '50%', md: '50%', lg: '50%', xl: '50%' },
   transform: { xs: 'translate(-50%, 0%)', md: 'translate(-50%, 0%)', lg: '0', xl: '0' },
-  zIndex: '1',
+  zIndex: '3',
 }
 const icons: SxProps = {
   width:  { xs: '30px', md: '30px', lg: '40px' },
@@ -187,8 +189,9 @@ const popUp: SxProps = {
   borderRadius: '1em 1em  1em 0.1em',
   display: 'flex',
   alignItems: 'center',
-  zIndex: '2',
-  border: '1px dashed #DE5656'
+  zIndex: '3',
+  border: '1px dashed #DE5656',
+  userSelect: 'none'
 }
 const popUpText: SxProps = {
   color: 'rgb(141, 15, 15)',
