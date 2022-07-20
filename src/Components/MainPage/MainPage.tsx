@@ -3,9 +3,8 @@ import * as React from 'react';
 import Box, { BoxProps } from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { styled, SxProps } from '@mui/material/styles';
-import { Avatar,Typography } from '@mui/material';
+import { Avatar } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
-import './MainPage.css'
 //Icons
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
@@ -23,12 +22,14 @@ import faceImg from '../../img/img/face3.jpg'
 import ballon from '../../img/img/clouds/newBallon2.png'
 import cloud1 from '../../img/img/clouds/cloud1.png'
 import cloud2 from '../../img/img/clouds/cloud2.png'
-import cloud3 from '../../img/img/clouds/cloud2.png'
+import cloud3 from '../../img/img/clouds/cloud3.png'
 import cloud4 from '../../img/img/clouds/cloud4.png'
 import cloud5 from '../../img/img/clouds/cloud5.png'
+import cloud6 from '../../img/img/clouds/cloud6.png'
 import bigCloud from '../../img/img/clouds/bigCloud.png'
 import backgroundImage from '../../img/img/clouds/sky-background.jpg'
 import Ballon from '../../img/SVG/Baloon';
+import './MainPage.css'
 
 
 
@@ -60,7 +61,7 @@ const NavBar = () => {
   }
     useEffect(() => {
       // setLoading(false)
-    setTimeout(() => {if( smokFilter) setSmokFilter(false)}, 3000)
+    setTimeout(() => {if( smokFilter) setSmokFilter(false)}, 1000)
     }, [smokFilter]);
   console.log(loading);
   
@@ -68,24 +69,35 @@ const NavBar = () => {
   return (
     <>
     <Box>
-    {!loading && !smokFilter ?  
-      <Box sx={ballonBox} className=
-      {
-        activePage === 'About' ? 
-        'ballonBoxHom' : activePage === 
-        'Portfolio' ? 'ballonBoxPort' :activePage === 
-        'skills' ? 'ballonBoxPort' : 'Experiences' ? 
-        'ballonBoxPort' : 'none'
+      {/* backGroundAnimation */}
+      {/* {smokFilter ? <Box className="fog-filter">
+        <img src={cloud3} alt="" />
+        <img src={cloud6} alt="" />
+  
+      </Box> : null} */}
+
+    {
+    // !loading && !smokFilter ?  
+    //   <Box sx={ballonBox} className=
+    //   {
+    //     activePage === 'About' ? 
+    //     'ballonBoxHom' : activePage === 
+    //     'Portfolio' ? 'ballonBoxPort' :activePage === 
+    //     'skills' ? 'ballonBoxPort' : 'Experiences' ? 
+    //     'ballonBoxPort' : 'none'
         
-        }>
-        <Box className="ballon-big-box">
-      <img className='baloon-img' src={ballon} alt="avtar" />
-      {/* <Box className="ballon-text">
-        Sone text
-      </Box> */}
-      </Box>
-    </Box> 
-    : null}
+    //     }>
+    //     <Box className="ballon-big-box">
+    //   <img className='baloon-img' src={ballon} alt="avtar" />
+    //   {/* <Box className="ballon-text">
+    //     Sone text
+    //   </Box> */}
+    //   </Box>
+    // </Box> 
+    // : null
+    
+    }
+    
     {!smokFilter ? 
     <Box>
     <Box  sx={cloudBox} className= 'cloudBox'>
@@ -107,10 +119,6 @@ const NavBar = () => {
     <Box >
     <Stack spacing={2}>
     <Box sx={NaveBoxInner}>
-      {activePage !== 'About' && !smokFilter ?
-      <Box sx={AvtarBox} className= 'fadein'>
-        <Avatar alt="Hazem Kawas" src={faceImg} sx={navImg} />
-      </Box> : null }
       <Box onClick={() => {
         setActivePage('About')
         loadingAnimation()
@@ -249,7 +257,7 @@ const cloudBox: SxProps = {
   width: { xs: '100%', md: '100%', lg: '100%'},
   height: { xs: '100%', md: '100%', lg: '100%'},
   overflow: 'hidden',
-  zIndex: '0'
+  zIndex: '1'
 }
 const bigbigCloudloudBox: SxProps = {
   position: 'absolute',
@@ -258,7 +266,7 @@ const bigbigCloudloudBox: SxProps = {
   width: { xs: '100%', md: '100%', lg: '100%'},
   height: { xs: '100%', md:'100%', lg:'100%' },
   overflow: 'hidden',
-  zIndex: '1'
+  zIndex: '2'
 }
 const none: SxProps = {
  display: 'none',

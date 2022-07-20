@@ -1,5 +1,5 @@
 .nave-items {
-  animation: goneWithWind 3s linear forwards;
+  animation: goneWithWind 1.5s linear forwards;
   transform-origin: left ;
 }
 
@@ -7,17 +7,18 @@
   0% {
     opacity: 1;
     filter: blur(0);
-    transform: translateX(0px) translateY(0) rotate(180deg) scale(1.5);
+    transform: translateX(0px) translateY(0) scale(1.5);
   }
   50% {
     opacity: .5;
     pointer-events: none;
-    transform: translateX(600px) translateY(0px) rotate(360deg) scale(1);
   }
   100% {
     opacity: 0;
     filter: blur(20px);
-    transform: translateX(900px) translateY(-200px) rotate(680deg) scale(.3);
+    transform: translateX(200px) translateY(-200px)scale(.3);
+    pointer-events: none;
+
   }
 }
 
@@ -53,8 +54,8 @@
   position: absolute;
   bottom: 0;
   max-width: 100%;
-  animation: cloudAnimation 150s linear infinite;
-  z-index: 0;
+  animation: cloudAnimation 50s linear infinite;
+  user-select: none;
 }
 
 @keyframes cloudAnimation {
@@ -69,8 +70,8 @@
   position: absolute;
   bottom: 0;
   max-width: 100%;
-  animation: BigCloudBoxAnimation 150s linear infinite;
-  z-index: 0;
+  animation: BigCloudBoxAnimation 50s linear infinite;
+  user-select: none;
 }
 
 @keyframes BigCloudBoxAnimation {
@@ -81,32 +82,43 @@
     transform: translate(100%);
   }
 }
-
-.cloudBox-loading img{
+.fog-filter{
+  overflow: hidden;
+}
+.fog-filter img{
   position: absolute;
   bottom: 0;
   max-width: 100%;
+  max-height: 100%;
   animation: loadingCloudAnimation 3s linear forwards;
   z-index: 0;
+  overflow: hidden;
 }
 @keyframes loadingCloudAnimation {
-  0%{
-    transform: translate(-100%);
-    opacity: .5;
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0px) translateY(0)  scale(2);
   }
-  100%{
-    transform: translate(100%);
+  50% {
+    opacity: .5;
+    pointer-events: none;
+  }
+  100% {
     opacity: 0;
+    filter: blur(20px);
+    transform: translateX(100px) translateY(-100px)  scale(1);
+    overflow: hidden;
   }
 }
 .ballon-big-box{
   position: relative;
-  z-index: 1;
+  z-index: 2;
   /* width: 10em; */
 }
 .baloon-img {
   /*  */
-  z-index: 1;
+  z-index: 2;
   position: relative;
   
 }
@@ -114,7 +126,7 @@
 .ballonBoxPort{
   position: absolute;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
 }
 
 
@@ -144,7 +156,7 @@
 .ballonBoxHom {
   position: absolute;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
 }
 
 .ballonBoxHom img {

@@ -3,6 +3,7 @@ import { blueGrey } from '@mui/material/colors';
 import { useState } from 'react';
 import './Experiences.css'
 import InfoIcon from '@mui/icons-material/Info';
+import backgroundImage from '../../img/img/clouds/sky-background.jpg'
 
 
 const Experiences = () => {
@@ -170,7 +171,7 @@ const LayoutBox: SxProps = {
   alignItems: 'center',
   justifyContent: 'space-between',
   textColor: blueGrey[900],
-  zIndex: '1'
+  zIndex: '2'
 }
 const BoxStyle: SxProps = {
   width: { xs: '100%', md: '80%',lg: '100%' },
